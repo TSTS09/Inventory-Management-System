@@ -1,0 +1,160 @@
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-image: url('image.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: scroll;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    background-color: #000;
+}
+
+.container {
+    display: flex;
+    position: relative;
+    width: auto;
+    height: 100%;
+}
+
+.left-section {
+    flex: 1;
+    background-image: url('image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border-radius: 10px;
+}
+
+.right-section {
+    flex: 1;
+    padding: 19px;
+    background-color: #dadada;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    width: -1000px;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 19%;
+    border-radius: 30%;
+    margin-top: -20px;
+    margin-left: -400px;
+
+}
+
+form {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    width: 300px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    display: inline-block;
+    top: 100%;
+    margin-left: 320px;
+    margin-top: -200px;
+}
+
+input,
+select {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    float: left;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#error {
+    color: red;
+}
+
+#message {
+    display: none;
+    background: #f1f1f1;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+#message p {
+    padding: 10px 35px;
+    font-size: 18px;
+}
+
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "\2714";
+}
+
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "\2716";
+}
+
+#result {
+    color: green;
+}
+
+#error {
+    color: red;
+}
+
+.color-changing {
+    color: #184e87;
+    transition: color 5s ease-in-out;
+}
