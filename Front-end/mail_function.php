@@ -1,5 +1,10 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // SMTP settings for Mailtrap
+    ini_set("SMTP", "smtp.mailtrap.io");
+    ini_set("smtp_port", "2525");
+
     // Retrieve form data
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
@@ -9,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Construct the email message
     $msg = "First Name: $first_name\n";
     $msg .= "Last Name: $last_name\n";
-    $msg .= "Email: $email\n\n";
+    $msg .= "Email: $email\sn\n";
     $msg .= "Message:\n$message";
 
     // Send email
@@ -24,7 +29,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "Invalid request method.";
 }
-
-jty8yoou
-
-

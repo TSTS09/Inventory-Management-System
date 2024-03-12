@@ -90,27 +90,27 @@
             <form action="mail_function.php" method="post">
               <div class="form-group row">
                 <div class="col-md-6 mb-4 mb-lg-0">
-                  <input type="text" class="form-control" placeholder="First name" id="first_name">
+                  <input type="text" class="form-control" placeholder="First name" name="first_name" id="first_name">
                 </div>
                 <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="Last name" id="last_name">
+                  <input type="text" class="form-control" placeholder="Last name" name="last_name" id="last_name">
                 </div>
               </div>
 
               <div class="form-group row">
                 <div class="col-md-12">
-                  <input type="text" class="form-control" placeholder="Email address" id="email">
+                  <input type="text" class="form-control" placeholder="Email address" name="email" id="email">
                 </div>
               </div>
 
               <div class="form-group row">
                 <div class="col-md-12">
-                  <textarea name="" id="" class="form-control" placeholder="Write your message." cols="30" rows="10"></textarea>
+                  <textarea name="message" id="message" class="form-control" placeholder="Write your message." cols="30" rows="10"></textarea>
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-md-6 mr-auto">
-                  <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Send Message" id="message">
+                  <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Send Message">
                 </div>
               </div>
             </form>
