@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inventory Management</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="/home(admin)/home.html" class="logo">
+            <img src="../Chorus.png" alt="Logo">
+            <span class="nav-item">Admin 1</span>
+          </a></li>
+        <li><a href="/home(admin)/home.html">
+            <i class="fas fa-menorah"></i>
+            <span class="nav-item">Dashboard</span>
+          </a></li>
+        <li><a href="/home(admin)/Inventory-management/page.html">
+            <i class="fas fa-chart-bar"></i>
+            <span class="nav-item">Inventory Management</span>
+          </a></li>
+        <li><a href="/home(admin)/Inventory-Assignment/page.html">
+            <i class="fas fa-database"></i>
+            <span class="nav-item">Add Product</span>
+          </a></li>
+        <li><a href="#">
+            <i class="fas fa-cog"></i>
+            <span class="nav-item">Setting</span>
+          </a></li>
+        <li><a href="#" class="logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="nav-item">Log out</span>
+        </a></li>
+      </ul>
+    </nav>
+    <section class="chores">
+      <div class="chores-list">
+        <h1>Inventory Management</h1>
+        <button class="add-chore-btn" id="add-product-btn">Add Product</button>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Product ID</th> <!-- Added th tag for Product ID -->
+              <th>Product Name</th>
+              <th>SKU</th>
+              <th>Category</th>
+              <th>Quantity in Stock</th>
+              <th>Product Description</th>
+              <th>Barcode Number</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="product-list"></tbody>
+        </table>
+      </div>
+      <div class="modal" id="add-chore-modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Add a New Product</h2>
+          <form action="" method="post" id="product-form">
+            <label for="product-id">Product ID:</label>
+            <input type="text" name="product-id" id="product-id" placeholder="Enter product id" required>
+            <label for="product-name">Product Name:</label>
+            <input type="text" name="product-name" id="product-name" placeholder="Enter product name" required>
+            <label for="sku">SKU:</label>
+            <input type="text" name="sku" id="sku" placeholder="Enter SKU of product" required>
+            <label for="category">Category:</label>
+            <input type="text" name="category" id="category" placeholder="Enter category" required>
+            <label for="qty-in-stock">Quantity in Stock:</label>
+            <input type="number" name="qty-in-stock" id="qty-in-stock" placeholder="Enter quantity in stock" required>
+            <label for="product-description">Product Description:</label>
+            <input type="text" name="product-description" id="product-description" placeholder="Enter product description">
+            <label for="barcode">Barcode Number:</label>
+            <input type="text" name="barcode" id="barcode" placeholder="Enter barcode number">
+            <label for="actions">Actions:</label>
+            <input type="text" name="actions" id="actions" placeholder="Enter actions" required>
+            <button type="submit" name="submit" class="add-product-btn" id="add-product-btn">Add Product</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal" id="edit-product-modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Edit Product</h2>
+          <form action="" method="post" id="edit-product-form">
+            <input type="hidden" name="product-id" id="edit-product-id">
+            <label for="edit-product-name">Product ID:</label>
+            <input type="text" name="edit-product-id" id="edit-product-id" required>
+            <label for="edit-product-name">Product Name:</label>
+            <input type="text" name="edit-product-name" id="edit-product-name" required>
+            <label for="edit-sku">SKU:</label>
+            <input type="text" name="edit-sku" id="edit-sku" required>
+            <label for="edit-category">Category:</label>
+            <input type="text" name="edit-category" id="edit-category" required>
+            <label for="edit-qty-in-stock">Quantity in Stock:</label>
+            <input type="number" name="edit-qty-in-stock" id="edit-qty-in-stock" required>
+            <label for="edit-product-description">Product Description:</label>
+            <input type="text" name="edit-product-description" id="edit-product-description">
+            <label for="edit-barcode">Barcode Number:</label>
+            <input type="text" name="edit-barcode" id="edit-barcode">
+            <label for="edit-actions">Actions:</label>
+            <input type="text" name="edit-actions" id="edit-actions" required>
+            <button type="submit" name="submit" class="add-product-btn" id="save-changes-btn">Save Changes</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const productList = document.getElementById("product-list");
+      const addProductBtn = document.getElementById("add-product-btn");
+      const modal = document.getElementById("add-chore-modal");
+      const closeModalBtn = document.querySelector("#add-chore-modal .close");
+
+      // Add event listener to the add product button
+      addProductBtn.addEventListener("click", () => {
+        modal.style.display = "block";
+      });
+
+      // Add event listener to the close button of add product modal
+      closeModalBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      // Add event listener to the product form for adding a new product
+      const productForm = document.getElementById("product-form");
+      productForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+       // Get the product information from the form
+        const productName = document.getElementById("product-name").value;
+        const productId = document.getElementById("product-id").value; // Added line to get Product ID
+        const sku = document.getElementById("sku").value;
+        const category = document.getElementById("category").value;
+        const qtyInStock = document.getElementById("qty-in-stock").value;
+        const productDescription = document.getElementById("product-description").value;
+        const barcode = document.getElementById("barcode").value;
+        const actions = '<button class="edit-product-btn">Edit</button><button class="delete-product-btn">Delete</button>';
+
+        // Create a new product object
+        const product = {
+          id: productId, // Changed name to 'id' to match the key in the product object
+          name: productName,
+          sku: sku,
+          category: category,
+          qtyInStock: qtyInStock,
+          description: productDescription,
+          barcode: barcode,
+          actions: actions
+        };
+
+        // Add the new product to the table
+        const newRow = createProductRow(product);
+        productList.appendChild(newRow);
+
+        // Clear the form fields
+        clearProductForm();
+
+        // Close the modal
+        modal.style.display = "none";
+      });
+
+      // Function to create a new row for a product in the table
+function createProductRow(product) {
+    const newRow = document.createElement("tr");
+    newRow.innerHTML = `
+        <td>${product.id}</td>
+        <td>${product.name}</td>
+        <td>${product.sku}</td>
+        <td>${product.category}</td>
+        <td>${product.qtyInStock}</td>
+        <td>${product.description || '-'}</td>
+        <td>${product.barcode || '-'}</td>
+        <td><button class="edit-product-btn">Edit</button><button class="delete-product-btn">Delete</button></td>
+    `;
+
+    productList.appendChild(newRow); // Append the new row to the table
+
+    // Add event listeners for edit and delete buttons within the new row
+    const editBtn = newRow.querySelector('.edit-product-btn');
+    const deleteBtn = newRow.querySelector('.delete-product-btn');
+    
+    editBtn.addEventListener('click', () => {
+        // Call function to handle edit action
+        console.log("Edit clicked for product: ", product);
+    });
+    
+    deleteBtn.addEventListener('click', () => {
+        // Call function to handle delete action
+        console.log("Delete clicked for product: ", product);
+        newRow.remove(); // Remove the row from the table
+    });
+}
+
+        
+        // Add event listeners for edit and delete buttons
+        const editBtn = newRow.querySelector('.edit-product-btn');
+        const deleteBtn = newRow.querySelector('.delete-product-btn');
+        
+        editBtn.addEventListener('click', () => {
+          // Call function to handle edit action
+          console.log("Edit clicked for product: ", product);
+        });
+        
+        deleteBtn.addEventListener('click', () => {
+          // Call function to handle delete action
+          console.log("Delete clicked for product: ", product);
+          newRow.remove(); // Remove the row from the table
+        });
+  
+        return newRow;
+      }
+
+      // Function to clear the add product form fields
+      function clearProductForm() {
+        document.getElementById("product-id").value = ""; // Clear Product ID field
+        document.getElementById("product-name").value = "";
+        document.getElementById("sku").value = "";
+        document.getElementById("category").value = "";
+        document.getElementById("qty-in-stock").value = "";
+        document.getElementById("product-description").value = "";
+        document.getElementById("barcode").value = "";
+        document.getElementById("actions").value = "";
+      }
+    });
+  </script>
+</body>
+</html>
+

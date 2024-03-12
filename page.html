@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Inventory Management</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="/home(admin)/home.html" class="logo">
+            <img src="../Chorus.png">
+            <span class="nav-item">Admin 1</span>
+          </a></li>
+        <li><a href="/home(admin)/home.html">
+            <i class="fas fa-menorah"></i>
+            <span class="nav-item">Dashboard</span>
+          </a></li>
+        <li><a href="/home(admin)/Chores-management/page.html">
+            <i class="fas fa-chart-bar"></i>
+            <span class="nav-item">Inventory Management</span>
+          </a></li>
+        <li><a href="/home(admin)/Chores-Assignment/page.html">
+            <i class="fas fa-database"></i>
+            <span class="nav-item">Add Product</span>
+          </a></li>
+        <li><a href="#">
+            <i class="fas fa-cog"></i>
+            <span class="nav-item">Setting</span>
+          </a></li>
+          <li><a href="#" class="logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="nav-item">Log out</span>
+        </a></li>
+      </ul>
+    </nav>
+    <section class="chores">
+      <div class="chores-list">
+        <h1>Inventory Management</h1>
+        <button class="add-chore-btn" id="add-chore-btn">Add Product</button>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>SKU</th>
+              <th>Category</th>
+              <th>Quantity in Stock</th>
+              <th>Location in Shop</th>
+              <th>Product Description</th>
+              <th>Barcode Number</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="product-list"></tbody>
+        </table>
+      </div>
+      <div class="modal" id="add-chore-modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Add a New Product</h2>
+          <form action="" method="post" id="product-form">
+            <label for="product-id">Product ID:</label>
+            <input type="text" name="product-id" id="product-id" placeholder="Enter product id" required>
+            <label for="product-name">Product Name:</label>
+            <input type="text" name="product-name" id="product-name" placeholder="Enter product name" required>
+            <label for="sku">SKU:</label>
+            <input type="text" name="sku" id="sku" placeholder="Enter SKU of product" required>
+            <label for="category">Category:</label>
+            <input type="category" name="category" id="category" required>
+            <label for="qty in stock">Quantity in Stock:</label>
+            <input type="qty in stock" name="qty in stock" id="qty in stock" required>
+            <label for="product description">Product Description:</label>
+            <input type="product description" name="product description" id="product description" required>
+            <label for="barcode">Barcode Number:</label>
+            <input type="barcode" name="barcode" id="barcode" required>
+            <label for="actions">Actions:</label>
+            <input type="actions" name="actions" id="actions" required>
+
+            <button type="submit" name="submit" class="add-product-btn" id="add-product-btn">Add Product</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal" id="edit-product-modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Add Product</h2>
+          <form action="" method="post" id="edit-product-form">
+            <input type="hidden" name="product-id" id="edit-product-id">
+            <label for="edit-product-name">Product ID:</label>
+            <input type="text" name="edit-product-name" id="edit-product-name" required>
+            <label for="edit-assigned-to">Product Name:</label>
+            <input type="text" name="product-name" id="product-name" required>
+            <label for="sku">SKU:</label>
+            <input type="sku" name="sku" id="sku" required>
+            <label for="category">Category:</label>
+            <input type="category" name="category" id="category" required>
+            <label for="qty in stock">Quantity in Stock:</label>
+            <input type="qty in stock" name="qty in stock" id="qty in stock" required>
+            <label for="product description">Product Description:</label>
+            <input type="product description" name="product description" id="product description" required>
+            <label for="barcode">Barcode Number:</label>
+            <input type="barcode" name="barcode" id="barcode" required>
+            <label for="actions">Actions:</label>
+            <input type="actions" name="actions" id="actions" required>
+
+            
+            <button type="submit" name="submit" class="add-product-btn" id="add-product-btn">Save Changes</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const productList = document.getElementById("product-list");
+      const addChoreBtn = document.getElementById("add-product-btn");
+      const modal = document.getElementById("add-product-modal");
+      const closeModalBtn = document.querySelector(".modal .close");
+
+      const editChoreModal = document.getElementById("edit-product-modal");
+      const closeEditChoreModalBtn = document.querySelector("#edit-product-modal .close");
+
+      // Add event listener to the add product button
+      addProductBtn.addEventListener("click", () => {
+        modal.style.display = "block";
+      });
+
+      // Add event listener to the close button of add product modal
+      closeModalBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      // Add event listener to the close button of edit product modal
+      closeEditChoreModalBtn.addEventListener("click", () => {
+        editChoreModal.style.display = "none";
+      });
+
+      // Add event listener to the chore form for adding a new cproduct
+      const productForm = document.getElementById("product-form");
+      productForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        // Get the product name, assigned to, due date, and starting time from the form
+        const choreName = document.getElementById("chore-name").value;
+        const assignedTo = document.getElementById("assigned-to").value;
+        const dueDate = document.getElementById("due-date").value;
+        const startingTime = document.getElementById("starting-time").value;
+
+        // Create a new product object
+        const chore = {
+          name: productName,
+          assignedTo: assignedTo,
+          dueDate: dueDate,
+          startingTime: startingTime
+        };
+
+        // Add the new product to the table
+        const newRow = createChoreRow(choresList.children.length + 1, chore);
+        choresList.appendChild(newRow);
+
+        // Clear the product name, assigned to, due date, and starting time fields
+        clearChoreForm();
+
+        // Close the add product modal
+        modal.style.display = "none";
+      });
+
+      // Add event listener to the product list to handle delete and edit button clicks
+      choresList.addEventListener("click", (event) => {
+        if (event.target.classList.contains("delete-chore-btn")) {
+          // Handle delete button click
+          deleteChore(event);
+        } else if (event.target.classList.contains("edit-chore-btn")) {
+          // Handle edit button click
+          openEditProductModal(event);
+        }
+      });
+
+      // Add event listener to the edit product form for saving changes
+      const editproductForm = document.getElementById("edit-chore-form");
+      editProductForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        // Get the edited product information from the form
+        const productId = document.getElementById("edit-product-id").value;
+        const editedChore = {
+          name: document.getElementById("edit-product-name").value,
+          assignedTo: document.getElementById("edit-assigned-to").value,
+          dueDate: document.getElementById("edit-due-date").value,
+          startingTime: document.getElementById("edit-starting-time").value
+        };
+
+        // Update the table with the edited product information
+        updateChoreRow(choreId, editedChore);
+
+        // Close the edit product modal
+        editChoreModal.style.display = "none";
+      });
+
+      // Function to create a new row for a product in the table
+      function createChoreRow(productId, product) {
+        const newRow = document.createElement("tr");
+        newRow.id = `chore-row-${choreId}`;
+        newRow.innerHTML = `
+          <td>${productId}</td>
+          <td>${product.name}</td>
+          <td>${product.assignedTo}</td>
+          <td>${product.dueDate}</td>
+          <td>${product.startingTime}</td>
+          <td>
+            <button class="edit-chore-btn" id="edit-chore-btn-${productId}">Edit</button>
+            <button class="delete-chore-btn" id="delete-chore-btn-${productId}">Delete</button>
+          </td>
+        `;
+        return newRow;
+      }
+
+      // Function to clear the add product form fields
+      function clearProductForm() {
+        document.getElementById("product-name").value = "";
+        document.getElementById("assigned-to").value = "";
+        document.getElementById("due-date").value = "";
+        document.getElementById("starting-time").value = "";
+      }
+
+      // Function to delete a product from the table
+      function deleteProduct(event) {
+        const productId = event.target.id.split("-")[3];
+        const productRow = event.target.parentElement.parentElement;
+
+        // Remove the product from the table
+        productList.removeChild(productRow);
+      }
+
+      // Function to open the edit product modal with the current product information
+      function openEditChoreModal(event) {
+        const productId = event.target.id.split("-")[3];
+        const productRow = event.target.parentElement.parentElement;
+        const productName = productRow.children[1].textContent;
+        const assignedTo = productRow.children[2].textContent;
+        const dueDate = productRow.children[3].textContent;
+        const startingTime = choreRow.children[4].textContent;
+
+        // Set the current chore information in the edit product form
+        document.getElementById("edit-product-id").value = choreId;
+        document.getElementById("edit-product-name").value = choreName;
+        document.getElementById("edit-assigned-to").value = assignedTo;
+        document.getElementById("edit-due-date").value = dueDate;
+        document.getElementById("edit-starting-time").value = startingTime;
+
+        // Open the edit product modal
+        editProductModal.style.display = "block";
+      }
+
+      // Function to update the table with edited product information
+      function updateproductRow(productId, editedPrproduct) {
+        const productRow = document.getElementById(`chore-row-${choreId}`);
+        productRow.children[1].textContenproduct.name;
+        productRow.children[2].textContent = editedproduct.assignedTo;
+        productRow.children[3].textContent = editedproduct.dueDate;
+        productRow.children[4].textContent = editedproduct.startingTime;
+      }
+    });
+  </script>
+</body>
+
+</html>
