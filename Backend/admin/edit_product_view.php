@@ -43,30 +43,55 @@ if (isset($_GET['product_id'])) {
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <h2>Edit Product</h2>
-                    <form action="../actions/edit_a_product_action.php" method="post" id="edit-product-form">
-                        <input type="hidden" name="product-id" id="edit-product-id" />
-                        <label for="edit-product-name">Product Name:</label>
-                        <input type="text" name="edit-product-name" id="edit-product-name" required />
-                        <label for="edit-sku">SKU:</label>
-                        <input type="text" name="edit-sku" id="edit-sku" required />
-                        <label for="category">Category:</label>
-                        <select name="category" id="category" required>
-                            <option value="0">Select</option>
-                            <?php
-                            include "../functions/select_category_fxn.php";
-                            echo $options;
-                            ?>
-                        </select>
-                        <label for="edit-qty-in-stock">Quantity in Stock:</label>
-                        <input type="number" name="edit-qty-in-stock" id="edit-qty-in-stock" required />
-                        <label for="edit-LocationInshop">Location in shop:</label>
-                        <input type="text" name="edit-LocationInshop" id="edit-LocationInshop" required />
-                        <label for="edit-product-description">Product Description(optional):</label>
-                        <input type="text" name="edit-product-description" id="edit-product-description" />
-                        <button type="submit" name="submit" class="add-inventory-btn" id="save-changes-btn">
-                            Save Changes
-                        </button>
-                    </form>
+                    <?php
+                    // Check if product_id is provided in the GET URL
+                    if (isset($_GET['product_id'])) {
+                        // Retrieve Product ID from GET URL
+                        $ProductID = $_GET['product_id'];
+
+                        // Call getProductById() function to retrieve Product details
+                        $Product = getProductById($ProductID);
+
+                        // Check if Product details are found
+                        if ($Product) {
+                            // Display edit form
+                    ?>
+                            <form action="../actions/edit_a_product_action.php" method="post" id="edit-product-form">
+                                <input type="hidden" name="product-id" id="edit-product-id" />
+                                <label for="edit-product-name">Product Name:</label>
+                                <input type="text" name="edit-product-name" id="edit-product-name" required />
+                                <label for="edit-sku">SKU:</label>
+                                <input type="text" name="edit-sku" id="edit-sku" required />
+                                <label for="category">Category:</label>
+                                <select name="category" id="category" required>
+                                    <option value="0">Select</option>
+                                    <?php
+                                    include "../functions/select_category_fxn.php";
+                                    echo $options;
+                                    ?>
+                                </select>
+                                <label for="edit-qty-in-stock">Quantity in Stock:</label>
+                                <input type="number" name="edit-qty-in-stock" id="edit-qty-in-stock" required />
+                                <label for="edit-LocationInshop">Location in shop:</label>
+                                <input type="text" name="edit-LocationInshop" id="edit-LocationInshop" required />
+                                <label for="edit-product-description">Product Description(optional):</label>
+                                <input type="text" name="edit-product-description" id="edit-product-description" />
+                                <button type="submit" name="submit" class="add-inventory-btn" id="save-changes-btn">
+                                    Save Changes
+                                </button>
+                            </form>
+                    <?php
+                        } else {
+                            // Product not found, redirect to Product display page
+                            header("Location: ../view/management_view.php");
+                            exit();
+                        }
+                    } else {
+                        // Product ID not provided, redirect to Product display page
+                        header("Location: ../view/management_view.php");
+                        exit();
+                    }
+                    ?>
                 </div>
             </div>
         </body>

@@ -4,7 +4,7 @@ include '../settings/connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
-    $ProductID = $_POST["product-id"];
+    $ProductID = $_POST["edit-product-id"];
     $ProductName = $_POST["edit-product-name"];
     $SKU = $_POST["edit-sku"];
     $category = $_POST["category"];

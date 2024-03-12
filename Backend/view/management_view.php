@@ -100,36 +100,7 @@
           </form>
         </div>
       </div>
-      <div class="modal" id="edit-inventory-modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Edit Product</h2>
-          <form action="" method="post" id="edit-product-form">
-            <input type="hidden" name="product-id" id="edit-product-id" />
-            <label for="edit-product-name">Product Name:</label>
-            <input type="text" name="edit-product-name" id="edit-product-name" required />
-            <label for="edit-sku">SKU:</label>
-            <input type="text" name="edit-sku" id="edit-sku" required />
-            <label for="category">Category:</label>
-            <select name="category" id="category" required>
-              <option value="0">Select</option>
-              <?php
-              include "../functions/select_category_fxn.php";
-              echo $options;
-              ?>
-            </select>
-            <label for="edit-qty-in-stock">Quantity in Stock:</label>
-            <input type="number" name="edit-qty-in-stock" id="edit-qty-in-stock" required />
-            <label for="edit-LocationInshop">Location in shop:</label>
-            <input type="text" name="edit-LocationInshop" id="edit-LocationInshop" placeholder="Enter location in Shop" required />
-            <label for="edit-product-description">Product Description(optional):</label>
-            <input type="text" name="edit-product-description" id="edit-product-description" />
-            <button type="submit" name="submit" class="add-inventory-btn" id="save-changes-btn">
-              Save Changes
-            </button>
-          </form>
-        </div>
-      </div>
+      
     </section>
   </div>
   <script>
@@ -138,15 +109,30 @@
       const modal = document.getElementById("add-inventory-modal");
       const closeModalBtn = document.querySelector(".modal .close");
 
-      // Add event listener to the add chore button
+      // Add event listener to the add product button
       addInventorybtn.addEventListener("click", () => {
         modal.style.display = "block";
       });
 
-      // Add event listener to the close button of add chore modal
+      // Add event listener to the close button of add product modal
       closeModalBtn.addEventListener("click", () => {
         modal.style.display = "none";
       });
+
+
+      // const EditInventorybtn = document.getElementById("edit-inventory-btn");
+      // const editModal = document.getElementById("edit-inventory-modal");
+      // const EditCloseModalBtn = document.querySelector(".modal .close");
+
+      //  // Add event listener to the add product button
+      //  EditInventorybtn.addEventListener("click", () => {
+      //   editModal.style.display = "block";
+      // });
+
+      // // Add event listener to the close button of add product modal
+      // EditCloseModalBtn.addEventListener("click", () => {
+      //   editModal.style.display = "none";
+      // });
     });
   </script>
 </body>
