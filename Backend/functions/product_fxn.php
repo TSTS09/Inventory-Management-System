@@ -47,7 +47,6 @@ echo '</table>';
         </form>
     </div>
 </div>
-
 <script>
     function editProduct(id, name, sku, category, quantity, location, description) {
         document.getElementById('edit-product-id').value = id;
