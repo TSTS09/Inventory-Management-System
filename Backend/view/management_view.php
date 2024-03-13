@@ -104,37 +104,29 @@
     </section>
   </div>
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const addInventorybtn = document.getElementById("add-inventory-btn");
-      const modal = document.getElementById("add-inventory-modal");
-      const closeModalBtn = document.querySelector(".modal .close");
+  document.addEventListener("DOMContentLoaded", function() {
+  const addInventorybtn = document.getElementById("add-inventory-btn");
+  const modal = document.getElementById("add-inventory-modal");
+  const closeModalBtn = document.querySelector(".modal .close");
+  
+  // Add event listener to the add product button
+  addInventorybtn.addEventListener("click", () => {
+    modal.style.display = "block";
+  });
 
-      // Add event listener to the add product button
-      addInventorybtn.addEventListener("click", () => {
-        modal.style.display = "block";
-      });
+  // Add event listener to the close button of add product modal
+  closeModalBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
 
-      // Add event listener to the close button of add product modal
-      closeModalBtn.addEventListener("click", () => {
-        modal.style.display = "none";
-      });
-
-
-      // const EditInventorybtn = document.getElementById("edit-inventory-btn");
-      // const editModal = document.getElementById("edit-inventory-modal");
-      // const EditCloseModalBtn = document.querySelector(".modal .close");
-
-      //  // Add event listener to the add product button
-      //  EditInventorybtn.addEventListener("click", () => {
-      //   editModal.style.display = "block";
-      // });
-
-      // // Add event listener to the close button of add product modal
-      // EditCloseModalBtn.addEventListener("click", () => {
-      //   editModal.style.display = "none";
-      // });
-    });
-  </script>
+  // Close modal if clicked outside of it
+  window.addEventListener("click", function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+</script>
 </body>
 
 </html>

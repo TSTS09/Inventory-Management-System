@@ -4,20 +4,21 @@ include '../settings/connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
-    $ProductID = $_POST["edit-product-id"];
-    $ProductName = $_POST["edit-product-name"];
-    $SKU = $_POST["edit-sku"];
+    $ProductID = $_POST["product_id"];
+    $ProductName = $_POST["product_name"];
+    $SKU = $_POST["sku"];
     $category = $_POST["category"];
-    $Quantity = $_POST["edit-qty-in-stock"];
-    $location = $_POST["edit-LocationInshop"];
-    $description = $_POST["edit-product-description"];
+    $Quantity = $_POST["quantity_in_stock"];
+    $location = $_POST["location_in_shop"];
+    $description = $_POST["product_description"];
 
     // SQL query to update product in database
-    $sql = "UPDATE products SET ProductName='$ProductName', SKU='$SKU', Category='$category', QuantityInStock='$Quantity', LocationInShop='$location', ProductDescription='$description' WHERE ProductID='$ProductID'";
+    $sql = "UPDATE products SET ProductName=?, SKU=?, Category=?, QuantityInStock=?, LocationInShop=?, ProductDescription=? WHERE ProductID=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssissi", $ProductName, $SKU, $category, $Quantity, $location, $description, $ProductID);
 
     // Execute the query
-    $result = $conn->query($sql);
-    if ($result) {
+    if ($stmt->execute()) {
         // Redirect to the product display page after successful update
         header('Location: ../view/management_view.php');
         exit();
@@ -32,3 +33,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Close the connection
 $conn->close();
+?>

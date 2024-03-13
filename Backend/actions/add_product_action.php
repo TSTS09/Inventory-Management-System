@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // SQL query to insert product into database
     $sql = "INSERT INTO products (ProductName, SKU, Category, QuantityInStock, LocationInShop,ProductDescription) VALUES ('$ProductName', '$SKU', '$category', '$Quantity','$location', '$description')";
-    echo "aspidnqfkn";
+   
     $result = $conn->query($sql);
     if ($result) {
         header('Location: ../view/management_view.php');

@@ -36,7 +36,13 @@ echo '</table>';
             <label for="edit-sku">SKU:</label>
             <input type="text" id="edit-sku" name="sku" required />
             <label for="edit-category">Category:</label>
-            <input type="text" id="edit-category" name="category" required />
+            <select class="add-inventory-btn" name="category" id="edit-category" required>
+              <option value="0">Select</option>
+              <?php
+              include "../functions/select_category_fxn.php";
+              echo $options;
+              ?>
+            </select>
             <label for="edit-quantity">Quantity in Stock:</label>
             <input type="number" id="edit-quantity" name="quantity_in_stock" required />
             <label for="edit-location">Location in Shop:</label>
