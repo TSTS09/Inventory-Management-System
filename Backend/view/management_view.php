@@ -42,7 +42,7 @@
     <section class="inventory">
       <div class="inventory-list">
         <h1>Inventory Management</h1>
-        <button class="add-inventory-btn" id="add-inventory-btn">
+        <button class="CC" id="add-inventory-btn">
           Add Product
         </button>
         <div class="search-container">
