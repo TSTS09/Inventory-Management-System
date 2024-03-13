@@ -45,8 +45,14 @@
         <button class="add-inventory-btn" id="add-inventory-btn">
           Add Product
         </button>
+
+        <?php
+        //Include the connection file
+        include '../actions/search_action.php';
+        ?>
+
         <div class="search-container">
-          <form action="/action_page.php">
+          <form action="../actions/search_action.php" method= "GET">
             <input type="text" placeholder="Search coundown or product" name="search" id="search-input" />
             <button class="add-inventory-btn" type="submit">
               <i class="fa fa-search"></i>
@@ -66,21 +72,22 @@
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody id="product-list"><?php include '../functions/inventory_fxn.php'; ?> </tbody>
+          <tbody id="product-list">
+            <?php include '../functions/product_fxn.php'; ?>
+          </tbody>
         </table>
       </div>
       <div class="modal" id="add-inventory-modal">
         <div class="modal-content">
           <span class="close">&times;</span>
           <h2>Add a New Product</h2>
-          <form action="../actions/add_management_action.php" method="post" id="product-form">
+          <form action="../actions/add_product_action.php" method="post" id="product-form">
             <label for="product-name">Product Name:</label>
             <input type="text" name="product-name" id="product-name" placeholder="Enter product name" required />
-
             <label for="sku">SKU:</label>
             <input type="text" name="sku" id="sku" placeholder="Enter SKU of product" required />
             <label for="category">Category:</label>
-            <select name="category" id="category" required>
+            <select class="add-inventory-btn" name="category" id="category" required>
               <option value="0">Select</option>
               <?php
               include "../functions/select_category_fxn.php";
@@ -91,63 +98,47 @@
             <input type="number" name="qty-in-stock" id="qty-in-stock" placeholder="Enter quantity in stock" required />
             <label for="LocationInshop">Location in shop:</label>
             <input type="text" name="LocationInshop" id="LocationInshop" placeholder="Enter location in shop" required />
-
-            <label for="product-description">Product Description:</label>
-            <input type="text" name="product-description" id="product-description"
-              placeholder="Enter product description" />
+            <label for="product-description">Product Description(optional):</label>
+            <input type="text" name="product-description" id="product-description" placeholder="Enter product description" />
             <button type="submit" name="submit" class="add-inventory-btn" id="add-inventory-btn">
               Add Product
             </button>
           </form>
         </div>
       </div>
-      <div class="modal" id="edit-inventory-modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Edit Product</h2>
-          <form action="" method="post" id="edit-product-form">
-            <input type="hidden" name="product-id" id="edit-product-id" />
-            <label for="edit-product-name">Product Name:</label>
-            <input type="text" name="edit-product-name" id="edit-product-name" required />
-            <label for="edit-sku">SKU:</label>
-            <input type="text" name="edit-sku" id="edit-sku" required />
-            <label for="category">Category:</label>
-            <select name="category" id="category" required>
-              <option value="0">Select</option>
-              <?php
-              include "../functions/select_category_fxn.php";
-              echo $options;
-              ?>
-            </select>
-            <label for="edit-qty-in-stock">Quantity in Stock:</label>
-            <input type="number" name="edit-qty-in-stock" id="edit-qty-in-stock" required />
-            <label for="edit-LocationInshop">Location in shop:</label>
-            <input type="text" name="edit-LocationInshop" id="edit-LocationInshop" placeholder="Enter location in Shop" required />
-            <label for="edit-product-description">Product Description:</label>
-            <input type="text" name="edit-product-description" id="edit-product-description" />
-            <button type="submit" name="submit" class="add-inventory-btn" id="save-changes-btn">
-              Save Changes
-            </button>
-          </form>
-        </div>
-      </div>
+      
     </section>
   </div>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
       const addInventorybtn = document.getElementById("add-inventory-btn");
       const modal = document.getElementById("add-inventory-modal");
       const closeModalBtn = document.querySelector(".modal .close");
 
-      // Add event listener to the add chore button
+      // Add event listener to the add product button
       addInventorybtn.addEventListener("click", () => {
         modal.style.display = "block";
       });
 
-      // Add event listener to the close button of add chore modal
+      // Add event listener to the close button of add product modal
       closeModalBtn.addEventListener("click", () => {
         modal.style.display = "none";
       });
+
+
+      // const EditInventorybtn = document.getElementById("edit-inventory-btn");
+      // const editModal = document.getElementById("edit-inventory-modal");
+      // const EditCloseModalBtn = document.querySelector(".modal .close");
+
+      //  // Add event listener to the add product button
+      //  EditInventorybtn.addEventListener("click", () => {
+      //   editModal.style.display = "block";
+      // });
+
+      // // Add event listener to the close button of add product modal
+      // EditCloseModalBtn.addEventListener("click", () => {
+      //   editModal.style.display = "none";
+      // });
     });
   </script>
 </body>
