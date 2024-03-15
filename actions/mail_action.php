@@ -5,9 +5,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Include PHPMailer autoload file
-require 'PHPMailer-master/src/Exception.php';
-require 'PHPMailer-master/src/PHPMailer.php';
-require 'PHPMailer-master/src/SMTP.php';
+require '../PHPMailer-master/src/Exception.php';
+require '../PHPMailer-master/src/PHPMailer.php';
+require '../PHPMailer-master/src/SMTP.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Recipients
             $mail->setFrom($email, $first_name . ' ' . $last_name);
-            $mail->addAddress('tiffanydegbotse123@gmail.com');
+            $mail->addAddress(USERNAME);
 
             // Content
             $mail->isHTML(false);
@@ -81,7 +81,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Send email
             $mail->send();
-            echo "Your message has been sent successfully.";
+
+            // return true;
+            echo "<script>
+                alert('Your message has been sent successfully')
+                window.location.href='../Front-end/contact.php'
+            </script>";
+        
         } catch (Exception $e) {
             echo "Failed to send the message. Error: {$mail->ErrorInfo}";
         }

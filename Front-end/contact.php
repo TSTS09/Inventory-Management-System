@@ -87,7 +87,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mb-5" >
-            <form action="mail_function.php" method="post">
+            <form action="../actions/mail_action.php" method="post">
               <div class="form-group row">
                 <div class="col-md-6 mb-4 mb-lg-0">
                   <input type="text" class="form-control" placeholder="First name" name="first_name" id="first_name">
