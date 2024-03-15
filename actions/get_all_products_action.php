@@ -1,13 +1,14 @@
 <?php
-include '../settings/connection.php';
+require_once '../settings/connection.php';
 
 function getAllProducts()
 {
     global $conn;
     $products = array();
-    $sql = "SELECT * FROM products";
+    $sql = "SELECT p.ProductID, p.ProductName, p.SKU, c.categoryname AS Category, p.QuantityInStock, p.LocationInShop, p.ProductDescription
+    FROM products p
+    INNER JOIN categories c ON p.Category = c.categoryid";
     $result = $conn->query("$sql");
-    
     if (!$result) {
         echo "Error: " . $conn->error;
     } else {

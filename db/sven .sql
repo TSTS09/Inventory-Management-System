@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2024 at 11:17 PM
+-- Generation Time: Mar 12, 2024 at 09:41 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,43 @@ SET time_zone = "+00:00";
 --
 -- Database: `sven`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `categoryid` int(11) NOT NULL,
+  `categoryname` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`categoryid`, `categoryname`) VALUES
+(1, 'Antibiotics'),
+(2, 'Pain Relievers'),
+(3, 'Vitamins and Supplements'),
+(4, 'Antipyretics'),
+(5, 'Antiseptics'),
+(6, 'Antifungals'),
+(7, 'Anti-Inflammatory Drugs'),
+(8, 'Antiemetics'),
+(9, 'Antivirals'),
+(10, 'Decongestants'),
+(11, 'Laxatives'),
+(12, 'Cough and Cold Medications'),
+(13, 'Antihistamines'),
+(14, 'Cardiovascular Medications'),
+(15, 'Hormones'),
+(16, 'Muscle Relaxants'),
+(17, 'Analgesics'),
+(18, 'Respiratory Medications'),
+(19, 'Gastrointestinal Medications'),
+(20, 'Dermatologicals');
 
 -- --------------------------------------------------------
 
@@ -67,8 +104,7 @@ CREATE TABLE `products` (
   `Category` text DEFAULT NULL,
   `QuantityInStock` int(11) DEFAULT NULL,
   `LocationInShop` text DEFAULT NULL,
-  `ProductDescription` text DEFAULT NULL,
-  `Image` blob DEFAULT NULL
+  `ProductDescription` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -122,12 +158,27 @@ CREATE TABLE `users` (
   `company_name` varchar(255) NOT NULL,
   `phone_number` varchar(20) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `passwd` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userid`, `roleid`, `first_name`, `last_name`, `company_name`, `phone_number`, `email`, `passwd`) VALUES
+(2, 1, 'Tiffany', 'Degbotse', 'Chateau', '+233542618106', 'tiffanydegbotse123@gmail.com', '$2y$10$mKC0Q8UBsfpL9tVbhX9jLu.Kwe07yL/jQ/3rNfF/uct.3ZBJ0Gafy'),
+(4, 2, 'Clifford', 'Nkansah', 'Ashesi', '0558579224', 'clifford@gmail.com', '$2y$10$vzCYEXOf3DpdaFsZ9jtU/uyhGrRXwpSzf1M8153C84rCE3nd9NmRq'),
+(5, 1, 'Thierry', 'Johan', 'Ashesi', '0244789546', 'thierry@gmail.com', '$2y$10$2GMrQSiGxfeuXzYW1k9hnukPyG44AQidtrqJE6Nn8eFhpHQ7b/JMe');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`categoryid`);
 
 --
 -- Indexes for table `inventorymanagement`
@@ -166,6 +217,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `categoryid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
 -- AUTO_INCREMENT for table `inventorymanagement`
 --
 ALTER TABLE `inventorymanagement`
@@ -181,7 +238,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

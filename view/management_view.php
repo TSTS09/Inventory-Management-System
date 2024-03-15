@@ -46,13 +46,8 @@
           Add Product
         </button>
 
-        <?php
-        //Include the connection file
-        include '../actions/search_action.php';
-        ?>
-
         <div class="search-container">
-          <form action="../actions/search_action.php" method= "GET">
+          <form>
             <input type="text" placeholder="Search coundown or product" name="search" id="search-input" />
             <button class="add-inventory-btn" type="submit">
               <i class="fa fa-search"></i>
@@ -73,7 +68,18 @@
             </tr>
           </thead>
           <tbody id="product-list">
-            <?php include '../functions/product_fxn.php'; ?>
+
+            <?php
+            if (isset($_GET['search'])) {
+              include '../actions/search_action.php';
+              display_search();
+            } else {
+              include '../functions/product_fxn.php';
+
+            }
+
+
+            ?>
           </tbody>
         </table>
       </div>
@@ -97,20 +103,67 @@
             <label for="qty-in-stock">Quantity in Stock:</label>
             <input type="number" name="qty-in-stock" id="qty-in-stock" placeholder="Enter quantity in stock" required />
             <label for="LocationInshop">Location in shop:</label>
-            <input type="text" name="LocationInshop" id="LocationInshop" placeholder="Enter location in shop" required />
+            <input type="text" name="LocationInshop" id="LocationInshop" placeholder="Enter location in shop"
+              required />
             <label for="product-description">Product Description(optional):</label>
-            <input type="text" name="product-description" id="product-description" placeholder="Enter product description" />
+            <input type="text" name="product-description" id="product-description"
+              placeholder="Enter product description" />
             <button type="submit" name="submit" class="add-inventory-btn" id="add-inventory-btn">
               Add Product
             </button>
           </form>
         </div>
       </div>
-      
+
     </section>
   </div>
+  <!-- Hidden modal for editing -->
+  <div class="modal" id="edit-modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close eclose">&times;</span>
+      <h2>Edit Product</h2>
+      <form action="../actions/edit_a_product.php" method="post">
+        <input type="hidden" id="edit-product-id" name="product_id" />
+        <label for="edit-product-name">Product Name:</label>
+        <input type="text" id="edit-product-name" name="product_name" required />
+        <label for="edit-sku">SKU:</label>
+        <input type="text" id="edit-sku" name="sku" required />
+        <label for="edit-category">Category:</label>
+        <select class="add-inventory-btn" name="category" id="edit-category" required>
+          <option value="0">Select</option>
+          <?php
+          include "../functions/select_category_fxn.php";
+          echo $options;
+          ?>
+        </select>
+        <label for="edit-quantity">Quantity in Stock:</label>
+        <input type="number" id="edit-quantity" name="quantity_in_stock" required />
+        <label for="edit-location">Location in Shop:</label>
+        <input type="text" id="edit-location" name="location_in_shop" required />
+        <label for="edit-description">Product Description:</label>
+        <input type="text" id="edit-description" name="product_description" />
+        <button class="add-inventory-btn" type="submit">Save Changes</button>
+      </form>
+    </div>
+  </div>
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    function editProduct(id, name, sku, category, quantity, location, description) {
+      document.getElementById('edit-product-id').value = id;
+      document.getElementById('edit-product-name').value = name;
+      document.getElementById('edit-sku').value = sku;
+      document.getElementById('edit-category').value = category;
+      document.getElementById('edit-quantity').value = quantity;
+      document.getElementById('edit-location').value = location;
+      document.getElementById('edit-description').value = description;
+      document.getElementById('edit-modal').style.display = 'block';
+    }
+
+    document.querySelector('.modal .eclose').addEventListener('click', function () {
+      document.getElementById('edit-modal').style.display = 'none';
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
       const addInventorybtn = document.getElementById("add-inventory-btn");
       const modal = document.getElementById("add-inventory-modal");
       const closeModalBtn = document.querySelector(".modal .close");

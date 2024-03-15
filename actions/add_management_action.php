@@ -1,5 +1,5 @@
 <?php
-include '../settings/connection.php';
+require_once '../settings/connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data

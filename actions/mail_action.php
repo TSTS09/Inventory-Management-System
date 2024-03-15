@@ -1,4 +1,6 @@
 <?php
+include_once '../env.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -63,8 +65,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'tiffanydegbotse123@gmail.com'; // Your Gmail email address
-            $mail->Password = 'izvvvnkozoxxrifm'; // Your Gmail password
+            $mail->Username = USERNAME; // Your Gmail email address
+            $mail->Password = PASSWD; // Your Gmail password
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
