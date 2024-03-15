@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2024 at 09:41 AM
+-- Generation Time: Mar 15, 2024 at 10:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -61,34 +61,14 @@ INSERT INTO `categories` (`categoryid`, `categoryname`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inventorymanagement`
---
-
-CREATE TABLE `inventorymanagement` (
-  `product_id` int(11) NOT NULL,
-  `product_name` varchar(255) NOT NULL,
-  `SKU` varchar(255) DEFAULT NULL,
-  `category` varchar(255) DEFAULT NULL,
-  `quantity_in_stock` int(11) DEFAULT NULL,
-  `location_in_shop` varchar(255) DEFAULT NULL,
-  `product_description` varchar(255) DEFAULT NULL,
-  `barcode_number` varchar(255) DEFAULT NULL,
-  `actions` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `inventorytracking`
 --
 
 CREATE TABLE `inventorytracking` (
-  `product_name` varchar(255) NOT NULL,
+  `product_id` int(11) NOT NULL,
   `supplier_contact` varchar(255) NOT NULL,
   `date_last_restock` date NOT NULL,
-  `next_supply_date` date NOT NULL,
-  `countdown_till_next_supply` int(11) NOT NULL,
-  `actions` varchar(255) NOT NULL
+  `next_supply_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -99,13 +79,22 @@ CREATE TABLE `inventorytracking` (
 
 CREATE TABLE `products` (
   `ProductID` int(11) NOT NULL,
-  `ProductName` text DEFAULT NULL,
-  `SKU` text DEFAULT NULL,
-  `Category` text DEFAULT NULL,
-  `QuantityInStock` int(11) DEFAULT NULL,
-  `LocationInShop` text DEFAULT NULL,
-  `ProductDescription` text DEFAULT NULL
+  `ProductName` varchar(255) NOT NULL,
+  `SKU` varchar(255) NOT NULL,
+  `Category` int(11) NOT NULL,
+  `QuantityInStock` int(11) NOT NULL,
+  `LocationInShop` varchar(255) NOT NULL,
+  `ProductDescription` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`ProductID`, `ProductName`, `SKU`, `Category`, `QuantityInStock`, `LocationInShop`, `ProductDescription`) VALUES
+(2, 'Vitamin C', '678', 1, 7, 'Aisle 7', 'headache'),
+(6, 'Imelda Murray', 'In in placeat conse', 1, 645, 'Pariatur Lorem quis', 'Maiores et porro exc'),
+(7, 'Vitamin W', '675', 2, 8, 'Aisle 8', 'malaria');
 
 -- --------------------------------------------------------
 
@@ -115,11 +104,9 @@ CREATE TABLE `products` (
 
 CREATE TABLE `reports` (
   `ReportID` int(11) NOT NULL,
-  `ProductID` int(11) DEFAULT NULL,
-  `AmountLeft` int(11) DEFAULT NULL,
-  `Category` text DEFAULT NULL,
-  `Location` text DEFAULT NULL,
-  `LastSupplied` date DEFAULT NULL
+  `ProductID` int(11) NOT NULL,
+  `AmountLeft` int(11) NOT NULL,
+  `LastSupplied` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -133,17 +120,6 @@ CREATE TABLE `roles` (
   `role_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `roles`
---
-
-INSERT INTO `roles` (`roleid`, `role_name`) VALUES
-(1, 'Pharmacist'),
-(2, 'Inventory Manager'),
-(3, 'Assistant Manager'),
-(4, 'Pharmacy Operations Coordinator'),
-(5, 'Pharmacy IT Specialist');
-
 -- --------------------------------------------------------
 
 --
@@ -152,23 +128,14 @@ INSERT INTO `roles` (`roleid`, `role_name`) VALUES
 
 CREATE TABLE `users` (
   `userid` int(11) NOT NULL,
-  `roleid` int(11) DEFAULT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `company_name` varchar(255) NOT NULL,
-  `phone_number` varchar(20) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `passwd` varchar(255) NOT NULL
+  `roleid` int(11) NOT NULL,
+  `first_name` int(11) NOT NULL,
+  `last_name` int(11) NOT NULL,
+  `company_name` int(11) NOT NULL,
+  `phone_number` int(11) NOT NULL,
+  `email` int(11) NOT NULL,
+  `password` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`userid`, `roleid`, `first_name`, `last_name`, `company_name`, `phone_number`, `email`, `passwd`) VALUES
-(2, 1, 'Tiffany', 'Degbotse', 'Chateau', '+233542618106', 'tiffanydegbotse123@gmail.com', '$2y$10$mKC0Q8UBsfpL9tVbhX9jLu.Kwe07yL/jQ/3rNfF/uct.3ZBJ0Gafy'),
-(4, 2, 'Clifford', 'Nkansah', 'Ashesi', '0558579224', 'clifford@gmail.com', '$2y$10$vzCYEXOf3DpdaFsZ9jtU/uyhGrRXwpSzf1M8153C84rCE3nd9NmRq'),
-(5, 1, 'Thierry', 'Johan', 'Ashesi', '0244789546', 'thierry@gmail.com', '$2y$10$2GMrQSiGxfeuXzYW1k9hnukPyG44AQidtrqJE6Nn8eFhpHQ7b/JMe');
 
 --
 -- Indexes for dumped tables
@@ -181,16 +148,17 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`categoryid`);
 
 --
--- Indexes for table `inventorymanagement`
+-- Indexes for table `inventorytracking`
 --
-ALTER TABLE `inventorymanagement`
-  ADD PRIMARY KEY (`product_id`);
+ALTER TABLE `inventorytracking`
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`ProductID`);
+  ADD PRIMARY KEY (`ProductID`),
+  ADD KEY `category` (`Category`);
 
 --
 -- Indexes for table `reports`
@@ -223,32 +191,50 @@ ALTER TABLE `categories`
   MODIFY `categoryid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `inventorymanagement`
+-- AUTO_INCREMENT for table `products`
 --
-ALTER TABLE `inventorymanagement`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `products`
+  MODIFY `ProductID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `reports`
+--
+ALTER TABLE `reports`
+  MODIFY `ReportID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `roleid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `roleid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `inventorytracking`
+--
+ALTER TABLE `inventorytracking`
+  ADD CONSTRAINT `inventorytracking_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`PRODUCTID`);
+
+--
+-- Constraints for table `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category`) REFERENCES `categories` (`categoryid`);
+
+--
 -- Constraints for table `reports`
 --
 ALTER TABLE `reports`
-  ADD CONSTRAINT `reports_ibfk_1` FOREIGN KEY (`ProductID`) REFERENCES `products` (`ProductID`);
+  ADD CONSTRAINT `reports_ibfk_1` FOREIGN KEY (`ProductID`) REFERENCES `products` (`PRODUCTID`);
 
 --
 -- Constraints for table `users`
