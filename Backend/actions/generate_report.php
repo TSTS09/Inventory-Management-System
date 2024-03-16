@@ -1,4 +1,5 @@
 <?php
+require_once '../functions/fpdf/fpdf.php';
 include '../settings/connection.php'; // Include your database connection script
 
 
@@ -18,26 +19,12 @@ function daysUntilRestock($next_supply_date) {
 
 // Fetch data from tables
 $reportData = [];
+$sql = "SELECT p.ProductName AS product_name, i.supplier_contact AS supplier_name, c.categoryName AS category_name, i.next_supply_date FROM products p LEFT OUTER JOIN inventorytracking i ON p.ProductID = i.product_id LEFT OUTER JOIN categories c ON p.Category = c.categoryid;";
 
-$sql = "SELECT p.product_name, s.supplier_name, c.category_name , i.next_supply_date 
-        FROM products p
-        INNER JOIN inventorytracking i ON p.product_id = i.product_id 
-        INNER JOIN suppliers s ON p.supplier_id = s.supplier_id
-        INNER JOIN categories c ON p.category_id = c.category_id";
-$result = mysqli_query($conn, $sql); 
-
-
-if (!$stmt) {
-  echo "Error preparing statement: " . mysqli_error($conn);
-  exit();
-}
-
-// (No user input involved in this query, so binding is not needed)
-
-$result = mysqli_execute($stmt); // Execute the prepared statement
+$result = mysqli_query($conn, $sql);
 
 if (!$result) {
-  echo "Error executing statement: " . mysqli_error($conn);
+  echo "Error executing query: " . mysqli_error($conn);
   exit();
 } else {
   if (mysqli_num_rows($result) > 0) {
@@ -56,13 +43,13 @@ if (!$result) {
     echo "No data found in tables.";
   }
 }
-echo "oekgfpwokg";
+
+// print_r($reportData);
+// exit();
+
 // Generate PDF report (using FPDF library)
-require_once '../functions/fpdf/fpdf.php';
-
+ob_end_clean();
 $pdf = new FPDF();
-
-
 $pdf->AddPage();
 $pdf->SetFont('Arial', 'B', 16);
 $pdf->Cell(0, 10, 'Inventory Report - ' . date('Y-m-d'), 0, 1, 'C');
@@ -83,6 +70,7 @@ foreach ($reportData as $row) {
   $pdf->Cell(40, 6, $row['days_until_restock'], 1, 1);
 }
 
-$pdf->Output('Inventory_Report.pdf', 'D'); // Download the PDF
+// $pdf->Output('Inventory_Report.pdf', 'D'); // Download the PDF
+$pdf->Output(); // Download the PDF
 
 ?>

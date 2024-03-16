@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2024 at 10:03 PM
+-- Generation Time: Mar 16, 2024 at 12:34 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -94,7 +94,9 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`ProductID`, `ProductName`, `SKU`, `Category`, `QuantityInStock`, `LocationInShop`, `ProductDescription`) VALUES
 (2, 'Vitamin C', '678', 1, 7, 'Aisle 7', 'headache'),
 (6, 'Imelda Murray', 'In in placeat conse', 1, 645, 'Pariatur Lorem quis', 'Maiores et porro exc'),
-(7, 'Vitamin W', '675', 2, 8, 'Aisle 8', 'malaria');
+(7, 'Vitamin W', '675', 2, 8, 'Aisle 8', 'malaria'),
+(25, 'Vitamin W', '876', 1, 9, 'aisle 10', ''),
+(26, 'Vitamin W', '890', 1, 8, '2', 'yeah');
 
 -- --------------------------------------------------------
 
@@ -120,6 +122,17 @@ CREATE TABLE `roles` (
   `role_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`roleid`, `role_name`) VALUES
+(1, 'Pharmacist'),
+(2, 'Inventory Manager'),
+(3, 'Assistant Manager'),
+(4, 'Pharmacy Operations Coordinator'),
+(5, 'Pharmacy IT Specialist');
+
 -- --------------------------------------------------------
 
 --
@@ -129,13 +142,20 @@ CREATE TABLE `roles` (
 CREATE TABLE `users` (
   `userid` int(11) NOT NULL,
   `roleid` int(11) NOT NULL,
-  `first_name` int(11) NOT NULL,
-  `last_name` int(11) NOT NULL,
-  `company_name` int(11) NOT NULL,
-  `phone_number` int(11) NOT NULL,
-  `email` int(11) NOT NULL,
-  `password` int(11) NOT NULL
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `company_name` varchar(255) NOT NULL,
+  `phone_number` varchar(20) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userid`, `roleid`, `first_name`, `last_name`, `company_name`, `phone_number`, `email`, `password`) VALUES
+(3, 1, 'Tiffany', 'Degbotse', 'Ashesi', '0546728654', 'tiffanydegbotse123@gmail.com', '$2y$10$xMB8.e2IRyZWB9FktgWYrefKpFlP3dVLdHuFRzjwnLPtW3lzocCdC');
 
 --
 -- Indexes for dumped tables
@@ -194,7 +214,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `ProductID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ProductID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `reports`
@@ -206,13 +226,13 @@ ALTER TABLE `reports`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `roleid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `roleid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
