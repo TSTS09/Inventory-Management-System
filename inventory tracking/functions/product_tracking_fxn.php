@@ -1,25 +1,21 @@
 <?php
-include '../actions/get_all_products.php';
+include '../actions/get_all_products_tracking.php';
 
 $products = getAllProducts();
 
 // Display the Products in a table
 foreach ($products as $product) {
     echo "<tr>";
-    echo "<td>{$product['ProductID']}</td>";
-    echo "<td>{$product['ProductName']}</td>";
-    echo "<td>{$product['SKU']}</td>";
-    echo "<td>{$product['Category']}</td>";
-    echo "<td>{$product['QuantityInStock']}</td>";
-    echo "<td>{$product['LocationInShop']}</td>";
-    echo "<td>{$product['ProductDescription']}</td>";
+    echo "<td>{$product['product_id']}</td>";
+    echo "<td>{$product['supplier_contact']}</td>";
+    echo "<td>{$product['date_last_restock']}</td>";
+    echo "<td>{$product['next_supply_date']}</td>";
     echo "<td>";
-    echo "<a href='#' onclick='editProduct(\"{$product['ProductID']}\", \"{$product['ProductName']}\", \"{$product['SKU']}\", \"{$product['Category']}\", \"{$product['QuantityInStock']}\", \"{$product['LocationInShop']}\", \"{$product['ProductDescription']}\")'><button class='edit-product-btn'>Edit</button></a>";
-    echo "<a href='../actions/delete_product_action.php?product_id={$product['ProductID']}'><button class='delete-product-btn'>Delete</button></a>";
+    echo "<a href='#' onclick='editProduct(\"{$product['product_id']}\", \"{$product['supplier_contact']}\", \"{$product['date_last_restock']}\", \"{$product['next_supply_date']}\")'><button class='edit-product-btn'>Edit</button></a>";
+    echo "<a href='../actions/delete_product_action.php?product-id={$product['product_id']}'><button class='delete-product-btn'>Delete</button></a>";
     echo "</td>";
     echo "</tr>";
 }
-
 echo '</tbody>';
 echo '</table>';
 ?>
@@ -29,27 +25,25 @@ echo '</table>';
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Edit Product</h2>
-        <form action="../actions/edit_a_product.php" method="post">
-            <input type="hidden" id="edit-product-id" name="product_id" />
+        <form action="../actions/edit_product_action_tracking.php" method="post">
+            <input type="hidden" id="edit-product-id" name="product-id" />
             <label for="edit-product-name">Product Name:</label>
-            <input type="text" id="edit-product-name" name="product_name" required />
-            <label for="edit-sku">SKU:</label>
-            <input type="text" id="edit-sku" name="sku" required />
-            <label for="edit-category">Category:</label>
-            <select class="add-inventory-btn" name="category" id="edit-category" required>
-              <option value="0">Select</option>
-              <?php
-              include "../functions/select_category_fxn.php";
-              echo $options;
-              ?>
+            <select class="add-inventory-btn" name="product-name" id="edit-product-name" required>
+                <option value="">Select</option>
+                <?php
+                include "../functions/select_product_fxn.php";
+                echo $options;
+                ?>
             </select>
-            <label for="edit-quantity">Quantity in Stock:</label>
-            <input type="number" id="edit-quantity" name="quantity_in_stock" required />
-            <label for="edit-location">Location in Shop:</label>
-            <input type="text" id="edit-location" name="location_in_shop" required />
-            <label for="edit-description">Product Description:</label>
-            <input type="text" id="edit-description" name="product_description" />
-            <button class="add-inventory-btn" type="submit">Save Changes</button>
+            <label for="edit-supplier-contact">Supplier Contact:</label>
+            <input type="text" id="edit-supplier-contact" name="supplier-contact" placeholder="Enter supplier contact" required />
+            <label for="edit-last-restock">Last Restock:</label>
+            <input type="date" id="edit-last-restock" name="last-restock" required />
+            <label for="edit-next-supply-date">Next Supply Date:</label>
+            <input type="date" id="edit-next-supply-date" name="next-supply-date" required />
+            <button type="submit" name="submit" class="add-inventory-btn" id="edit-inventory-btn">
+                Save Changes
+            </button>
         </form>
     </div>
 </div>

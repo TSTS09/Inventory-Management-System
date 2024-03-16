@@ -2,22 +2,19 @@
 include '../settings/connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     // Retrieve form data
+    
     $ProductID = $_POST["product-id"];
-    $contact = $_POST["supplier-contact-input"];
-
-    $lastRestock = $_POST["last-restock-input"];
-    $dateObj = DateTime::createFromFormat('m-d-Y', $lastRestock);
-    $convertedDate = $dateObj->format('Y-m-d');
-
-    $NextSupply = $_POST["next-supply-date-input"];
-    $dateObj2 = DateTime::createFromFormat('m-d-Y', $NextSupply);
-    $convertedDate2 = $dateObj->format('Y-m-d');
- 
+    $contact = $_POST["supplier-contact"];
+    $lastRestock = $_POST["last-restock"]; 
+    $NextSupply = $_POST["next-supply-date"];
+  
     // SQL query to insert product into database
-    $sql = "INSERT INTO inventorytracking (product_id,supplier_contact,date_last_restock,next_supply_date) VALUES ('$ProductID', '$contact', '$convertedDate', '$convertedDate2')";
-
+    $sql = "INSERT INTO inventorytracking (product_id,supplier_contact,date_last_restock,next_supply_date) VALUES ('$ProductID', '$contact', '$lastRestock', '$NextSupply')";
     $result = $conn->query($sql);
+
+    
     if ($result) {
         header('Location:../view/tracking_view.php');
         exit();
@@ -26,10 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     echo 'error';
-
-    // header('Location:../view/tracking_view.php');
+ 
+    header('Location:../view/tracking_view.php');
     exit();
 }
-echo 'NEWON4TKN';
+
 
 $conn->close();

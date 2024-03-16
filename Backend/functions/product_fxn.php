@@ -37,7 +37,7 @@ echo '</table>';
             <input type="text" id="edit-sku" name="sku" required />
             <label for="edit-category">Category:</label>
             <select class="add-inventory-btn" name="category" id="edit-category" required>
-              <option value="0">Select</option>
+              <option value="">Select</option>
               <?php
               include "../functions/select_category_fxn.php";
               echo $options;

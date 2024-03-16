@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Inventory Management</title>
+    <title>Inventory Tracking</title>
     <link rel="stylesheet" href="../css/style_tracking.css" />
     <!-- Font Awesome Cdn Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
@@ -41,7 +41,7 @@
         </nav>
         <section class="inventory">
             <div class="inventory-list">
-                <h1>Inventory Management</h1>
+                <h1>Inventory Tracking</h1>
                 <button class="add-inventory-btn" id="add-inventory-btn">
                     Append product information
                 </button>
@@ -50,7 +50,7 @@
                 </button>
                 <div class="search-container">
                     <form action="/action_page.php">
-                        <input type="text" placeholder="Search coundown or product" name="search" id="search-input" />
+                        <input type="text" placeholder="Search coundown or product" name="search" id="search" />
                         <button class="add-inventory-btn" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
@@ -67,7 +67,6 @@
                         </tr>
                     </thead>
                     <tbody id="product-list">
-                        <!-- include '../functions/product_tracking_fxn.php'; -->
                     </tbody>
                 </table>
             </div>
@@ -75,21 +74,21 @@
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <h2>Add Product information</h2>
-                    <form action="../actions/add_product_action_tracking.php" method="POST" id="product-form">
+                    <form action="../actions/add_product_action_tracking.php" method="post" id="product-form">
                         <label for="product-name">Product Name:</label>
-                        <select class="add-inventory-btn" name="product-name" id="product-id" required>
-                            <option value=" 0">Select</option>
+                        <select class="add-inventory-btn" name="product-id" id="product-id" required>
+                            <option value="">Select</option>
                             <?php
                             include "../functions/select_product_fxn.php";
                             echo $options;
                             ?>
                         </select>
                         <label for="supplier-contact">Supplier Contact:</label>
-                        <input type="text" name="supplier-contact" id="supplier-contact-input" placeholder="Enter supplier contact" required />
+                        <input type="text" name="supplier-contact" id="supplier-contact" placeholder="Enter supplier contact" required />
                         <label for="last-restock">Last Restock:</label>
-                        <input type="date" name="last-restock" id="last-restock-input" required />
+                        <input type="date" name="last-restock" id="last-restock" required />
                         <label for="next-supply-date">Next Supply Date:</label>
-                        <input type="date" name="next-supply-date" id="next-supply-date-input" required />
+                        <input type="date" name="next-supply-date" id="next-supply-date" required />
                         <button type="submit" name="submit" class="add-inventory-btn" id="add-inventory-btn">
                             Add Product
                         </button>
@@ -120,23 +119,6 @@
                     modal.style.display = "none";
                 }
             });
-
-            function updateNextSupplyDateMin() {
-                const lastRestockInput = document.getElementById("last-restock-input");
-                const nextSupplyDateInput = document.getElementById("next-supply-date-input");
-
-                // Calculate the minimum date for the next supply date as one day after the last restock
-                const lastRestockDate = new Date(lastRestockInput.value);
-                const nextSupplyDateMin = new Date(lastRestockDate);
-                nextSupplyDateMin.setDate(lastRestockDate.getDate() + 1);
-
-                // Format the minimum date as "YYYY-MM-DD" for the input value
-                const nextSupplyDateMinFormatted = nextSupplyDateMin.toISOString().split('T')[0];
-
-                // Set the minimum value of the next supply date input
-                nextSupplyDateInput.min = nextSupplyDateMinFormatted;
-                nextSupplyDateInput.value = nextSupplyDateMinFormatted;
-            }
         });
     </script>
 </body>
