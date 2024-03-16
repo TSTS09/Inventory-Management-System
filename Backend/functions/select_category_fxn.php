@@ -11,8 +11,6 @@ $sql = "SELECT * FROM `categories`";
 // Execute the query using the connection
 $result = $conn->query($sql);
 
-
-
 // Check if execution worked
 if ($result) {
     // Fetch the results

@@ -25,4 +25,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header('Location: ../view/management_view.php');
     exit();
 }
+
 $conn->close();
