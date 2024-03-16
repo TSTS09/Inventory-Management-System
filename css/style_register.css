@@ -1,7 +1,6 @@
 
 body {
     font-family: "Segoe UI", Arial, sans-serif;
-    background-image: url('image.jpg');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +21,6 @@ body {
 
 .left-section {
     flex: 1;
-    background-image: url('image.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -33,7 +31,7 @@ body {
 .right-section {
     flex: 1;
     padding: 19px;
-    background-color: #dadada;
+    background-color: #120c0c;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     width: -1000px;
@@ -53,17 +51,17 @@ body {
 }
 
 form {
-    width: 100%;
-    padding: 20px;
+    width: 150%;
+    padding: 30px;
     background-color: #fff;
     width: 300px;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     display: inline-block;
-    top: 100%;
+    top: 80%;
     margin-left: 320px;
-    margin-top: -200px;
+    margin-top: -130px;
 }
 
 input,
@@ -155,6 +153,6 @@ a:hover {
 }
 
 .color-changing {
-    color: #184e87;
+    color: #5ab078;
     transition: color 5s ease-in-out;
 }

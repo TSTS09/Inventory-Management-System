@@ -1,6 +1,6 @@
 <?php
 // Include the connection file
-include '../settings/connection.php';
+include_once '../settings/connection.php';
 function display_search()
 {
     global $conn;
@@ -9,12 +9,13 @@ function display_search()
         // Sanitize the search query
         $search_query = $_GET['search'];
 
-        $sql = "SELECT * FROM products p JOIN categories c ON p.category=c.categoryid  WHERE ProductName = '$search_query'";
+        $sql = "SELECT * FROM products p JOIN categories c ON p.category=c.categoryid  WHERE ProductName LIKE '%$search_query%' OR categoryname LIKE '%$search_query%'";
 
         $result = mysqli_query($conn, $sql);
+
+
         if ($result) {
-            $product = mysqli_fetch_assoc($result);
-            if ($product) {
+            while($product = mysqli_fetch_assoc($result)) {
                 // Return the product details in HTML format
                 echo "
                 <tr>
@@ -31,9 +32,6 @@ function display_search()
                     </td>
                 </tr>
                 ";
-                
-            } else {
-                echo "Product not found";
             }
         } else {
             echo "Error executing search query";

@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="../css/style_register.css">
 </head>
 
-<body>
+<body style="background-image:url('../images/image.jpg');">
     <div class="container">
         <div class="left-section"></div>
         <div class="right-section">
             <div class="logo-container">
-                <img class="logo" src="Chorus.png" alt="Company Logo">
-                <h3 class="color-changing" style="width:45%"> Complete your chores faster, Enjoy yourself after</h3>
+                <img class="logo" src="../images/Chorus.png" alt="Company Logo">
+                <h3 class="color-changing" style="width:45%"> All you need to focus on saving lifes</h3>
             </div>
             <form class="form" action="../actions/register_user_action.php" method="post" name="registrationForm" id="registrationForm">
                 <h2>Register here</h2>
@@ -48,8 +48,8 @@
                 <p id="number" class="invalid">A <b>number</b></p>
                 <p id="length" class="invalid">Minimum <b>8 characters</b></p>
             </div>
-            <div style="text-align: center; margin-top: 10px; margin-left: 320px; color: rgb(255, 255, 255);">
-                Already have an account? <a href="login.html">Login here</a>
+            <div style="color:39c170; text-align: center; margin-top: 10px; margin-left: 320px;">
+                Already have an account? <a href="login_view.php">Login here</a>
             </div>
         </div>
     </div>

@@ -16,7 +16,13 @@
         <li>
           <a href="/home(admin)/home.html" class="logo">
             <img src="../Chorus.png" />
-            <span class="nav-item">Admin 1</span>
+            <span class="nav-item">
+              <?php
+              include_once '../settings/connection.php';
+              include_once '../functions/display_name_fxn.php';
+              echo display_name();
+              ?>
+              </span>
           </a>
         </li>
         <li>
@@ -48,7 +54,7 @@
 
         <div class="search-container">
           <form>
-            <input type="text" placeholder="Search coundown or product" name="search" id="search-input" />
+            <input type="text" placeholder="Search product or category" name="search" id="search-input" />
             <button class="add-inventory-btn" type="submit">
               <i class="fa fa-search"></i>
             </button>
@@ -94,12 +100,16 @@
             <input type="text" name="sku" id="sku" placeholder="Enter SKU of product" required />
             <label for="category">Category:</label>
             <select class="add-inventory-btn" name="category" id="category" required>
-              <option value="0">Select</option>
+              <option value="">Select</option>
               <?php
               include "../functions/select_category_fxn.php";
               echo $options;
               ?>
             </select>
+            <span id="category-error" style="color:red; display: none;"> Please select a category.</span>
+
+
+
             <label for="qty-in-stock">Quantity in Stock:</label>
             <input type="number" name="qty-in-stock" id="qty-in-stock" placeholder="Enter quantity in stock" required />
             <label for="LocationInshop">Location in shop:</label>
@@ -130,7 +140,7 @@
         <input type="text" id="edit-sku" name="sku" required />
         <label for="edit-category">Category:</label>
         <select class="add-inventory-btn" name="category" id="edit-category" required>
-          <option value="0">Select</option>
+          <option selected id="selected"></option>
           <?php
           include "../functions/select_category_fxn.php";
           echo $options;
@@ -148,10 +158,13 @@
   </div>
   <script>
     function editProduct(id, name, sku, category, quantity, location, description) {
+      var option = document.getElementById('selected');
       document.getElementById('edit-product-id').value = id;
       document.getElementById('edit-product-name').value = name;
       document.getElementById('edit-sku').value = sku;
-      document.getElementById('edit-category').value = category;
+      option.value =category;
+      option.innerText =category;
+      document.getElementById('edit-category').appendChild(option)
       document.getElementById('edit-quantity').value = quantity;
       document.getElementById('edit-location').value = location;
       document.getElementById('edit-description').value = description;

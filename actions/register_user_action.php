@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt->close();
 
-    $sql = "INSERT INTO users (roleid, first_name, last_name, company_name, phone_number, email, passwd) VALUES ('$CompanyRole','$firstName', '$lastName', '$companyName','$phoneNumber', '$email', '$hashedPassword')";
+    $sql = "INSERT INTO users (roleid, first_name, last_name, company_name, phone_number, email, password) VALUES ('$CompanyRole','$firstName', '$lastName', '$companyName','$phoneNumber', '$email', '$hashedPassword')";
 
     $result = $conn->query($sql);
 

@@ -6,7 +6,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="fonts/icomoon/style.css">
 
@@ -52,7 +54,8 @@
 
           <div class="col-9 text-right">
 
-            <span class="d-inline-block d-lg-none"><a href="#" class=" site-menu-toggle js-menu-toggle py-5 "><span class="icon-menu h3 text-white"></span></a></span>
+            <span class="d-inline-block d-lg-none"><a href="#" class=" site-menu-toggle js-menu-toggle py-5 "><span
+                  class="icon-menu h3 text-white"></span></a></span>
 
             <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
               <ul class="site-menu main-menu js-clone-nav ml-auto ">
@@ -77,7 +80,8 @@
         <div class="row align-items-center justify-content-center">
           <div class="col-lg-8 intro text-center">
             <h1 class="text-white">Contact</h1>
-            <a href="index.html">Home</a> <span class="mx-3 text-white">/</span> <strong class="text-white">Contact</strong>
+            <a href="index.html">Home</a> <span class="mx-3 text-white">/</span> <strong
+              class="text-white">Contact</strong>
           </div>
         </div>
       </div>
@@ -86,7 +90,7 @@
     <div class="site-section bg-light" id="contact-section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 mb-5" >
+          <div class="col-lg-8 mb-5">
             <form action="../actions/mail_action.php" method="post">
               <div class="form-group row">
                 <div class="col-md-6 mb-4 mb-lg-0">
@@ -105,7 +109,8 @@
 
               <div class="form-group row">
                 <div class="col-md-12">
-                  <textarea name="message" id="message" class="form-control" placeholder="Write your message." cols="30" rows="10"></textarea>
+                  <textarea name="message" id="message" class="form-control" placeholder="Write your message." cols="30"
+                    rows="10"></textarea>
                 </div>
               </div>
               <div class="form-group row">
@@ -121,87 +126,89 @@
               <ul class="list-unstyled footer-link">
                 <li class="d-block mb-3">
                   <span class="d-block text-black">Address:</span>
-                  <span>1 University Ave, Ashesi University</span></li>
-                  <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+233 549253610</span></li>
-                  <li class="d-block mb-3"><span class="d-block text-black">Email:</span><span>info@SVEN.com</span></li>
-                </ul>
-              </div>
+                  <span>1 University Ave, Ashesi University</span>
+                </li>
+                <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+233 549253610</span></li>
+                <li class="d-block mb-3"><span class="d-block text-black">Email:</span><span>info@SVEN.com</span></li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-      
-
-      
-      <footer class="site-footer py-5">
-        <div class="container">
-
-          <div class="row">
-            <div class="col-lg-4">
-
-              <div class="text-center quick-contact-info">
-                <div class="mb-3 icon-wrap">
-                  <span class="icon-phone"></span>
-                </div>
-                <span class="caption">+233 549253610</span>
-              </div>
-
-            </div>
-            <div class="col-lg-4">
-
-              <div class="text-center quick-contact-info">
-                <div class="mb-3 icon-wrap">
-                  <span class="icon-room"></span>
-                </div>
-                <span class="caption">1 University Ave, Ashesi University</span>
-              </div>
-
-            </div>
-            <div class="col-lg-4">
-
-              <div class="text-center quick-contact-info">
-                <div class="mb-3 icon-wrap">
-                  <span class="icon-envelope-o"></span>
-                </div>
-                <span class="caption">info@SVEN.com</span>
-              </div>
-
-            </div>
-          </div>
-          
-          
-          <div class="row pt-5 mt-5 text-center">
-            <div class="col-lg-7 text-lg-left">
-              <p>
-              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by Team SVEN <i class="icon-heart text-danger"></i>
-              </p>
-            </div>
-            <div class="col-lg-5 text-lg-right">
-              <a href="#" class="ml-3">Terms</a>
-              <a href="#" class="ml-3">Privacy</a>
-            </div>
-            
-          </div>
-        </div>
-      </footer>
-
     </div>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/bootstrap-datepicker.min.js"></script>
-    <script src="js/aos.js"></script>
 
-    <script src="js/main.js"></script>
 
-  </body>
+    <footer class="site-footer py-5">
+      <div class="container">
 
-  </html>
+        <div class="row">
+          <div class="col-lg-4">
 
+            <div class="text-center quick-contact-info">
+              <div class="mb-3 icon-wrap">
+                <span class="icon-phone"></span>
+              </div>
+              <span class="caption">+233 549253610</span>
+            </div>
+
+          </div>
+          <div class="col-lg-4">
+
+            <div class="text-center quick-contact-info">
+              <div class="mb-3 icon-wrap">
+                <span class="icon-room"></span>
+              </div>
+              <span class="caption">1 University Ave, Ashesi University</span>
+            </div>
+
+          </div>
+          <div class="col-lg-4">
+
+            <div class="text-center quick-contact-info">
+              <div class="mb-3 icon-wrap">
+                <span class="icon-envelope-o"></span>
+              </div>
+              <span class="caption">info@SVEN.com</span>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-lg-7 text-lg-left">
+            <p>
+              Copyright &copy;
+              <script>document.write(new Date().getFullYear());</script> All rights reserved by Team SVEN <i
+                class="icon-heart text-danger"></i>
+            </p>
+          </div>
+          <div class="col-lg-5 text-lg-right">
+            <a href="#" class="ml-3">Terms</a>
+            <a href="#" class="ml-3">Privacy</a>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/aos.js"></script>
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

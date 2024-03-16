@@ -6,9 +6,9 @@ $products = getAllProducts();
 // print_r($products);
 // exit();
 // Display the Products in a table
-if(empty($products)){
+if (empty($products)) {
     return;
-}else{
+} else {
     foreach ($products as $product) {
         echo "<tr>";
         echo "<td>{$product['ProductID']}</td>";
