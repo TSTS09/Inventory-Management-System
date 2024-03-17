@@ -44,12 +44,6 @@ body {
     height: 100px; */
 }
 
-.logo {
-    max-width: 17%;
-    border-radius: 30%;
-    margin-left: -500px;
-}
-
 form {
     width: 150%;
     padding: 30px;
@@ -59,9 +53,8 @@ form {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     display: inline-block;
-    top: 80%;
+    top: 50%;
     margin-left: 320px;
-    margin-top: -130px;
 }
 
 input,

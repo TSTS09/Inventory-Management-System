@@ -7,9 +7,8 @@
     <title>SVEN Login</title>
     <link rel="stylesheet" href="../css/style_login.css">
 </head>
-
-<body>
-    <form action="../actions/login_user_action.php" method="post" name="loginForm" id="loginForm">
+<body style=" background-image: url(../images/image2.jpg);">
+    <form style="margin-left: 1000px;" action="../actions/login_user_action.php" method="post" name="loginForm" id="loginForm">
         <h3 style="text-align: center;">Sign in to SVEN</h3>
         <div class="line"></div><br>
         <label class="f-pws" for="emailInput">Enter your email:</label>
@@ -21,7 +20,7 @@
         <div id="result"></div>
         <div id="error"></div>
 
-        <a href="" class="f-pws"> Forgot Password</a><br>
+        <a href="forgot_password.php" class="f-pws"> Forgot Password</a><br>
     </form>
 
     <script>
@@ -56,11 +55,12 @@
     </script>
 
     <div class="f-container">
-        <a href="../index.php"> <img class="logo" src="../images/logo.jpg" alt="Company Logo"></a>
-        <p style="color: rgb(225, 207, 211);">Find all products at all times in Real-time</p>
+        <a href="../index.php"> <img style="max-width: 70%;border-radius: 20%;margin-left: 200px;margin-top:-250px" src="../images/logo.jpg" alt="Company Logo"></a>
+        <h2 style="width:45%; transition: color 5s ease-in-out;margin-left: 250px; "> Manage Less. Save More.</h2>
+        <h2 style="width:45%; transition: color 5s ease-in-out;margin-left: 250px;"> Connect Everything.</h2>
     </div>
     <div class="sub-link">
-        <h3 style="color: rgb(225, 207, 211);"> Don't have an account yet? <a href="../view/register_view.php" style="color:blue;"> Create an account here </a>
+        <h3 style="color: black; margin-left: 400px "> Don't have an account yet? <a href="../view/register_view.php" style="color:blue;"> Create an account here </a>
         </h3>
     </div>
 

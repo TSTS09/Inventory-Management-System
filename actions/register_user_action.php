@@ -11,7 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phoneNumber = $_POST['phoneNumber'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $securityInput = $_POST['securityInput'];
 
+    
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     // Check if email is already in use
@@ -23,13 +25,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->num_rows > 0) {
         $stmt->close();
-        header('Location: ../view/login_view.php?error=Email already exists. Please use another one.');
-        exit();
+        // header('Location: ../view/login_view.php?error=Email already exists. Please use another one.');
+        echo "<script>
+        alert('Email already exists. Please use another one or login in the next page');
+        window.location.href='../view/login_view.php?error=Email already exists. Please use another one.'
+        </script>";
+        // exit();
     }
 
     $stmt->close();
 
-    $sql = "INSERT INTO users (roleid, first_name, last_name, company_name, phone_number, email, password) VALUES ('$CompanyRole','$firstName', '$lastName', '$companyName','$phoneNumber', '$email', '$hashedPassword')";
+    $sql = "INSERT INTO users (roleid, first_name, last_name, company_name, phone_number, email, password, securityInput) VALUES ('$CompanyRole','$firstName', '$lastName', '$companyName','$phoneNumber', '$email', '$hashedPassword', '$securityInput')";
 
     $result = $conn->query($sql);
 

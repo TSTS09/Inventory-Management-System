@@ -147,15 +147,15 @@ CREATE TABLE `users` (
   `company_name` varchar(255) NOT NULL,
   `phone_number` varchar(20) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `securityInput` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userid`, `roleid`, `first_name`, `last_name`, `company_name`, `phone_number`, `email`, `password`) VALUES
-(3, 1, 'Tiffany', 'Degbotse', 'Ashesi', '0546728654', 'tiffanydegbotse123@gmail.com', '$2y$10$xMB8.e2IRyZWB9FktgWYrefKpFlP3dVLdHuFRzjwnLPtW3lzocCdC');
+
 
 --
 -- Indexes for dumped tables

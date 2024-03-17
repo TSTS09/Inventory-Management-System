@@ -16,11 +16,14 @@
         <li>
           <a href="#" class="logo">
             <img src="../images/logo.jpg" />
-            <span class="nav-item">
+            <span class="nav-item"> Hello,
               <?php
-              include_once '../settings/connection.php';
+              //Getting the user's email from the session
+              include_once '../settings/connection.php';  
+              session_start();
+              $email=$_SESSION['email'];
               include_once '../functions/display_name_fxn.php';
-              echo display_name();
+              echo display_name($email);
               ?>
             </span>
           </a>

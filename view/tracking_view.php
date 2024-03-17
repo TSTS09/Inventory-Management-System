@@ -16,11 +16,14 @@
                 <li>
                     <a href="" class="logo">
                         <img src="../images/logo.jpg" />
-                        <span class="nav-item">
+                        <span class="nav-item"> Hello,
                             <?php
-                            // include_once '../settings/connection.php';
-                            // include_once '../functions/display_name_fxn.php';
-                            // echo display_name();
+                            //Getting the user's email from the session
+                            include_once '../settings/connection.php';
+                            session_start();
+                            $email = $_SESSION['email'];
+                            include_once '../functions/display_name_fxn.php';
+                            echo display_name($email);
                             ?>
                         </span>
                     </a>
@@ -134,26 +137,46 @@
                 }
             });
 
-            function updateNextSupplyDateMin() {
-                const lastRestockInput = document.getElementById("last-restock-input");
-                const nextSupplyDateInput = document.getElementById("next-supply-date-input");
+            // function updateNextSupplyDateMin() {
+            //     const lastRestockInput = document.getElementById("last-restock-input");
+            //     const nextSupplyDateInput = document.getElementById("next-supply-date-input");
 
-                // Calculate the minimum date for the next supply date as one day after the last restock
-                const lastRestockDate = new Date(lastRestockInput.value);
-                const nextSupplyDateMin = new Date(lastRestockDate);
-                nextSupplyDateMin.setDate(lastRestockDate.getDate() + 1);
+            //     // Calculate the minimum date for the next supply date as one day after the last restock
+            //     const lastRestockDate = new Date(lastRestockInput.value);
+            //     const nextSupplyDateMin = new Date(lastRestockDate);
+            //     nextSupplyDateMin.setDate(lastRestockDate.getDate() + 1);
 
-                // Format the minimum date as "YYYY-MM-DD" for the input value
-                const nextSupplyDateMinFormatted = nextSupplyDateMin.toISOString().split('T')[0];
+            //     // Format the minimum date as "YYYY-MM-DD" for the input value
+            //     const nextSupplyDateMinFormatted = nextSupplyDateMin.toISOString().split('T')[0];
 
-                // Set the minimum value of the next supply date input
-                nextSupplyDateInput.min = nextSupplyDateMinFormatted;
-                nextSupplyDateInput.value = nextSupplyDateMinFormatted;
-            }
+            //     // Set the minimum value of the next supply date input
+            //     nextSupplyDateInput.min = nextSupplyDateMinFormatted;
+            //     nextSupplyDateInput.value = nextSupplyDateMinFormatted;
+            // }
         });
         document.getElementById('generate-report').addEventListener('click', function() {
             window.location.href = '../actions/generate_report.php';
         });
+        document.getElementById("last-restock-input").addEventListener("change", function() {
+            updateNextSupplyDateMin();
+        });
+
+        function updateNextSupplyDateMin() {
+            const lastRestockInput = document.getElementById("last-restock-input");
+            const nextSupplyDateInput = document.getElementById("next-supply-date-input");
+
+            // Calculate the minimum date for the next supply date as one day after the last restock
+            const lastRestockDate = new Date(lastRestockInput.value);
+            const nextSupplyDateMin = new Date(lastRestockDate);
+            nextSupplyDateMin.setDate(lastRestockDate.getDate() + 1);
+
+            // Format the minimum date as "YYYY-MM-DD" for the input value
+            const nextSupplyDateMinFormatted = nextSupplyDateMin.toISOString().split('T')[0];
+
+            // Set the minimum value of the next supply date input
+            nextSupplyDateInput.min = nextSupplyDateMinFormatted;
+            nextSupplyDateInput.value = nextSupplyDateMinFormatted;
+        }
     </script>
 </body>
 

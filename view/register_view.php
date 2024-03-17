@@ -13,11 +13,11 @@
         <div class="left-section"></div>
         <div class="right-section">
             <div class="logo-container">
-                <a href="../index.php"> <img class="logo" src="../images/logo.jpg" alt="Company Logo"></a>
+                <a href="../index.php"> <img style="max-width: 20%; border-radius: 30%; margin-left: -500px;" src="../images/logo.jpg" alt="Company Logo"></a>
                 <h2 class="color-changing" style="width:45%"> Manage Less. Save More.</h2>
                 <h2 class="color-changing" style="width:45%"> Connect Everything.</h2>
             </div>
-            <form class="form" action="../actions/register_user_action.php" method="post" name="registrationForm" id="registrationForm">
+            <form style=" margin-top: -200px;" class="form" action="../actions/register_user_action.php" method="post" name="registrationForm" id="registrationForm">
                 <h2>Register here</h2>
                 <input type="text" placeholder="First Name" name="firstName" id="firstName" required>
                 <input type="text" placeholder="Last Name" name="lastName" id="lastName" required>
@@ -38,6 +38,8 @@
 
                 <input type="password" placeholder="Password" name="password" id="password" required>
                 <input type="password" placeholder="Retype Password" name="passwordRetype" id="passwordRetype" required>
+                <!-- <label for="Security Question">Security Question:</label> -->
+                <input type="password" placeholder="Security : Enter Favorite Animal " name="securityInput" id="securityInput" required>
 
                 <button type="submit" name="registerButton" id="registerButton">Register</button>
                 <div id="error"></div>

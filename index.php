@@ -171,7 +171,7 @@
               </div>
               <div class="contents">
                 <h3>Stock lookup</h3>
-                <p>Manages placing and fulfilling orders, including processing, picking, packing, and shipping.</p>
+                <p>Effortlessly Locate Our Products: Directly discover items in stock and use our Stock Lookup feature to easily find our products or search by category for quick navigation."</p>
               </div>
             </a>
           </div>
@@ -182,7 +182,7 @@
               </div>
               <div class="contents">
                 <h3>Generate term reports</h3>
-                <p>Provide period summary of inventory to help you determine the peak seacon for proper SCM</p>
+                <p>Utilize our 'Generate Reports' tool to access comprehensive summaries of your inventory. Track supplier information, monitor restock countdowns, and categorize products for efficient management. </p>
               </div>
             </a>
           </div>
@@ -194,7 +194,7 @@
               </div>
               <div class="contents">
                 <h3>Inventory Management</h3>
-                <p>Provides real-time visibility into the quantity and location of each item in stock.</p>
+                <p>Explore our 'Inventory Management' feature to access live updates on the quantity and whereabouts of each item in stock. Effortlessly locate items and streamline operations with the ability to search by category.</p>
               </div>
             </a>
           </div>
@@ -204,8 +204,8 @@
                 <span class="flaticon-herbal"></span>
               </div>
               <div class="contents">
-                <h3>24/7 helpdesk</h3>
-                <p>Automatically generates reorder notifications or purchase orders when inventory levels fall below a predetermined threshold.</p>
+                <h3>24/7 Contact Us</h3>
+                <p>Have questions, recommendations, or facing any issues? Reach out to us through our '24/7 Contact Us' feature. Simply send us an email, and our team will ensure a prompt and timely response to address your concerns.</p>
               </div>
             </a>
           </div>
@@ -219,20 +219,20 @@
           <div class="col-lg-7 text-center mx-auto">
             <span class="text-primary d-block">Testimonials</span>
             <h2 class="section-heading"><strong>Happy Customers</strong></h2>
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <p class="mb-5"> Hear firsthand experiences and glowing reviews from customers who have experienced our products and services.</p>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-4 mb-4 mb-lg-0">
             <div class="testimonial-2">
               <blockquote class="mb-4">
-                <p>"Our experience so far has been fantastic! It's made managing stock levels a breeze, ensuring our pharmacy stays well-organized."</p>
+                <p>"I was blown away by the efficiency of the inventory tracking feature on this site. It's like having a personal assistant for my stock management needs!"</p>
               </blockquote>
               <div class="d-flex v-card align-items-center">
                 <img src="images/person_1 (1).jpg" alt="Image" class="img-fluid mr-3">
                 <div class="author-name">
                   <span class="d-block">Mike Fisher</span>
-                  <span>CEO, Fordrich Pharmasy</span>
+                  <span>CEO, Fordrich Pharmacy</span>
                 </div>
               </div>
             </div>
@@ -240,7 +240,7 @@
           <div class="col-lg-4 mb-4 mb-lg-0">
             <div class="testimonial-2">
               <blockquote class="mb-4">
-                <p>"We're thrilled with the seamless stock tracking and streamlined operations. A game-chkjbkjbkjkjbjbkjbkjbkjkbanger for our pharmacy!"</p>
+                <p>"The 24/7 contact option proved to be a lifesaver when I encountered some issues. I sent an email and received a response within minutes, which truly exceeded my expectations. This level of customer support is unparalleled!"</p>
               </blockquote>
               <div class="d-flex v-card align-items-center">
                 <img src="images/person_2 (1).jpg" alt="Image" class="img-fluid mr-3">
@@ -254,7 +254,7 @@
           <div class="col-lg-4 mb-4 mb-lg-0">
             <div class="testimonial-2">
               <blockquote class="mb-4">
-                <p>"The system has exceeded our expectations, providing robust features that have greatly improved our efficiency."</p>
+                <p>"The reports on this site are a game-changer! They give me a detailed inventory summary and help me track restock deadlines and supplier info effortlessly. It's like having a personal business consultant right at my fingertips"</p>
               </blockquote>
               <div class="d-flex v-card align-items-center">
                 <img src="images/person_3 (1).jpg" alt="Image" class="img-fluid mr-3">
@@ -280,43 +280,43 @@
         <div class="row">
           <div class="col-lg-4">
             <div class="post-entry-1 h-100">
-              <a href="single.html" class="mb-3 d-block">
-                <img src="images/img_1.png" alt="Image" class="img-fluid">
+              <a href="https://blogs.webmd.com/breast-cancer/20240304/no-pain-no-gain-navigating-tissue-expansions" class="mb-3 d-block">
+                <img src="images/img_4.jpg" alt="Image" class="img-fluid">
               </a>
               <div class="post-entry-1-contents">
 
-                <span class="meta d-inline-block">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
-                <h2><a href="single.html">Natural Healing For The Body</a></h2>
+                <span class="meta d-inline-block">March 04, 2024 <span class="mx-2">by</span> <a href="#">Admin</a></span>
+                <h2><a href="https://blogs.webmd.com/breast-cancer/20240304/no-pain-no-gain-navigating-tissue-expansions">No Pain, No gain: Navigating Tissue expansions</a></h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
+                <p>My second time going through the tissue expansion process brought a whole new meaning to the saying “no pain, no gain.” .</p>
               </div>
             </div>
           </div>
           <div class="col-lg-4">
             <div class="post-entry-1 h-100">
-              <a href="single.html" class="mb-3 d-block">
+              <a  href="https://blogs.webmd.com/pain-management/20240220/slee-and-chronic-pain" class="mb-3 d-block">
                 <img src="images/img_2.jpg" alt="Image" class="img-fluid">
               </a>
               <div class="post-entry-1-contents">
 
-                <span class="meta d-inline-block">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
-                <h2><a href="single.html">Natural Healing For The Body</a></h2>
+                <span class="meta d-inline-block">February 02, 2022 <span class="mx-2">by</span> <a href="#">Admin</a></span>
+                <h2><a href="https://blogs.webmd.com/pain-management/20240220/slee-and-chronic-pain">Pain Management: Sleep and Chronic Pain</a></h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
+                <p>In this post, I share insights from research, as well as my clinical experience improving sleep quality while treating complexities of chronic pain.I cover a multidisciplinary approach including lifestyle, medications, therapies, procedures, and psychological techniques.</p>
               </div>
             </div>
           </div>
           <div class="col-lg-4">
             <div class="post-entry-1 h-100">
-              <a href="single.html" class="mb-3 d-block">
+              <a href="https://blogs.webmd.com/heart-health/20220527/what-should-we-be-putting-in-our-bodies" class="mb-3 d-block">
                 <img src="images/img_3.jpg" alt="Image" class="img-fluid">
               </a>
               <div class="post-entry-1-contents">
 
-                <span class="meta d-inline-block">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
-                <h2><a href="single.html">Natural Healing For The Body</a></h2>
+                <span class="meta d-inline-block">May 01, 2022 <span class="mx-2">by</span> <a href="#">Admin</a></span>
+                <h2><a href="https://blogs.webmd.com/heart-health/20220527/what-should-we-be-putting-in-our-bodies">Heart Health: What Should we Be Putting In our Bodies?</a></h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
+                <p>We get so many conflicting messages about what foods are best for us. We know that certain things are perhaps dangerous for our hearts, but maybe we don't know to what extent. Most importantly, we need to focus on preventative foods we can eat to keep our hearts healthy. Prevention comes down to diet, exercise, and other lifestyle choices.</p>
               </div>
             </div>
           </div>
