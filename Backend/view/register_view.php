@@ -43,6 +43,7 @@ include '../settings/connection.php';
 
                 <input type="password" placeholder="Password" name="password" id="password" required>
                 <input type="password" placeholder="Retype Password" name="passwordRetype" id="passwordRetype" required>
+                <input type="password" placeholder="Enter Favorite Animal " name="securityInput" id="securityInput" required>
 
                 <button type="submit" name="registerButton" id="registerButton">Register</button>
                 <div id="error"></div>
@@ -65,6 +66,7 @@ include '../settings/connection.php';
             var email = document.getElementById("email");
             var myInput = document.getElementById("password");
             var passwordRetype = document.getElementById("passwordRetype");
+            var securityInput = document.getElementById("securityInput");
             var letter = document.getElementById("letter");
             var capital = document.getElementById("capital");
             var number = document.getElementById("number");

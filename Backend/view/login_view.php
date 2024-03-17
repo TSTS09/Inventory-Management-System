@@ -165,7 +165,7 @@ include '../settings/connection.php';
         <div id="result"></div>
         <div id="error"></div>
 
-        <a href="" class="f-pws"> Forgot Password</a><br>
+        <a href="forgot_password.php" class="f-pws"> Forgot Password</a><br>
     </form>
 
     <script>
