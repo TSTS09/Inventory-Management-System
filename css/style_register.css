@@ -31,23 +31,23 @@ body {
 .right-section {
     flex: 1;
     padding: 19px;
-    background-color: #120c0c;
+    background-color: #2f302e;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     width: -1000px;
 }
 
 .logo-container {
-    text-align: center;
+    text-align: left;
     margin-bottom: 20px;
+    /* width: 50px;
+    height: 100px; */
 }
 
 .logo {
-    max-width: 19%;
+    max-width: 17%;
     border-radius: 30%;
-    margin-top: -20px;
-    margin-left: -400px;
-
+    margin-left: -500px;
 }
 
 form {
@@ -155,4 +155,5 @@ a:hover {
 .color-changing {
     color: #5ab078;
     transition: color 5s ease-in-out;
+
 }

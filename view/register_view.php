@@ -13,8 +13,9 @@
         <div class="left-section"></div>
         <div class="right-section">
             <div class="logo-container">
-                <img class="logo" src="../images/Chorus.png" alt="Company Logo">
-                <h3 class="color-changing" style="width:45%"> All you need to focus on saving lifes</h3>
+                <a href="../index.php"> <img class="logo" src="../images/logo.jpg" alt="Company Logo"></a>
+                <h2 class="color-changing" style="width:45%"> Manage Less. Save More.</h2>
+                <h2 class="color-changing" style="width:45%"> Connect Everything.</h2>
             </div>
             <form class="form" action="../actions/register_user_action.php" method="post" name="registrationForm" id="registrationForm">
                 <h2>Register here</h2>
@@ -48,7 +49,7 @@
                 <p id="number" class="invalid">A <b>number</b></p>
                 <p id="length" class="invalid">Minimum <b>8 characters</b></p>
             </div>
-            <div style="color:39c170; text-align: center; margin-top: 10px; margin-left: 320px;">
+            <div style="color:#39c170; text-align: center; margin-top: 10px; margin-left: 320px;">
                 Already have an account? <a href="login_view.php">Login here</a>
             </div>
         </div>

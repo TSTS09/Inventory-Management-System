@@ -72,7 +72,7 @@
     </header>
 
 
-    <div class="hero" style="background-image: url('images/hero_bg_1.jpg');">
+    <div class="hero" style="background-image: url('images/services.jpg');">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-lg-8 intro text-center">

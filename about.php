@@ -46,7 +46,7 @@
 
           <div class="col-3">
             <div class="site-logo">
-              <a href="index.html">SVEN<span class="text-primary">.</span> </a>
+              <a href="index.php">SVEN<span class="text-primary">.</span> </a>
             </div>
           </div>
 
@@ -57,8 +57,8 @@
             <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
               <ul class="site-menu main-menu js-clone-nav ml-auto ">
                 <li><a href="index.php" class="nav-link">Home</a></li>
-                <li class="active"><a href="services.php" class="nav-link">Services</a></li>
-                <li><a href="about.php" class="nav-link">About</a></li>
+                <li><a href="services.php" class="nav-link">Services</a></li>
+                <li  class="active"><a href="about.php" class="nav-link">About</a></li>
                 <li><a href="contact.php" class="nav-link">Contact</a></li>
                 <li><a href="view/register_view.php" class="nav-link">Register</a></li>
               </ul>
@@ -72,7 +72,7 @@
     </header>
 
 
-    <div class="hero" style="background-image: url('images/1.jpg');">
+    <div class="hero" style="background-image: url('images/about.jpg');">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-lg-8 intro text-center">

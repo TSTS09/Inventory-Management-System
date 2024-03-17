@@ -46,7 +46,7 @@
 
           <div class="col-3">
             <div class="site-logo">
-              <a href="index.html">SVEN<span class="text-primary">.</span> </a>
+              <a href="index.php">SVEN<span class="text-primary">.</span> </a>
             </div>
           </div>
 
@@ -73,7 +73,7 @@
     </header>
 
 
-    <div class="hero" style="background-image: url('images/img_1.png');">
+    <div class="hero" style="background-image: url('images/img_1.jpg');">
 
       <div class="container">
         <div class="row align-items-center justify-content-center">

@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // return true;
             echo "<script>
                 alert('Your message has been sent successfully')
-                window.location.href='../Front-end/contact.php'
+                window.location.href='../contact.php'
             </script>";
         
         } catch (Exception $e) {
@@ -97,4 +97,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "Invalid request method.";
 }
-?>

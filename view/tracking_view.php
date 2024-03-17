@@ -14,9 +14,15 @@
         <nav>
             <ul>
                 <li>
-                    <a href="management_view.php" class="logo">
-                        <img src="../Chorus.png" />
-                        <span class="nav-item">Admin 1</span>
+                    <a href="" class="logo">
+                        <img src="../images/logo.jpg" />
+                        <span class="nav-item">
+                            <?php
+                            // include_once '../settings/connection.php';
+                            // include_once '../functions/display_name_fxn.php';
+                            // echo display_name();
+                            ?>
+                        </span>
                     </a>
                 </li>
                 <li>
@@ -32,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="logout">
+                    <a href="../actions/logout_user_action.php" class="logout">
                         <i class="fas fa-sign-out-alt"></i>
                         <span class="nav-item">Log out</span>
                     </a>
@@ -41,7 +47,7 @@
         </nav>
         <section class="inventory">
             <div class="inventory-list">
-                <h1>Inventory Management</h1>
+                <h1>Inventory Tracking</h1>
                 <button class="add-inventory-btn" id="add-inventory-btn">
                     Append product information
                 </button>
@@ -49,7 +55,7 @@
                     Generate report
                 </button>
                 <div class="search-container">
-                    <form action="/action_page.php">
+                    <form>
                         <input type="text" placeholder="Search coundown or product" name="search" id="search-input" />
                         <button class="add-inventory-btn" type="submit">
                             <i class="fa fa-search"></i>
@@ -68,7 +74,12 @@
                     </thead>
                     <tbody id="product-list">
                         <?php
-                        include '../functions/product_tracking_fxn.php';
+                        if (isset($_GET['search'])) {
+                            include '../actions/search_action_tracking.php';
+                            display_search_tracking();
+                        } else {
+                            include '../functions/product_tracking_fxn.php';
+                        }
                         ?>
                     </tbody>
                 </table>
@@ -80,7 +91,7 @@
                     <form action="../actions/add_product_action_tracking.php" method="POST" id="product-form">
                         <label for="product-name">Product Name:</label>
                         <select class="add-inventory-btn" name="product-name" id="product-id" required>
-                            <option value=" 0">Select</option>
+                            <option value="">Select</option>
                             <?php
                             include "../functions/select_product_fxn.php";
                             echo $options;
@@ -139,6 +150,9 @@
                 nextSupplyDateInput.min = nextSupplyDateMinFormatted;
                 nextSupplyDateInput.value = nextSupplyDateMinFormatted;
             }
+        });
+        document.getElementById('generate-report').addEventListener('click', function() {
+            window.location.href = '../actions/generate_report.php';
         });
     </script>
 </body>

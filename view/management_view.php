@@ -15,14 +15,14 @@
       <ul>
         <li>
           <a href="#" class="logo">
-            <img src="../Chorus.png" />
+            <img src="../images/logo.jpg" />
             <span class="nav-item">
               <?php
               include_once '../settings/connection.php';
               include_once '../functions/display_name_fxn.php';
               echo display_name();
               ?>
-              </span>
+            </span>
           </a>
         </li>
         <li>
@@ -38,7 +38,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="logout">
+          <a href="../actions/logout_user_action.php" class="logout">
             <i class="fas fa-sign-out-alt"></i>
             <span class="nav-item">Log out</span>
           </a>
@@ -51,7 +51,6 @@
         <button class="add-inventory-btn" id="add-inventory-btn">
           Add Product
         </button>
-
         <div class="search-container">
           <form>
             <input type="text" placeholder="Search product or category" name="search" id="search-input" />
@@ -74,17 +73,13 @@
             </tr>
           </thead>
           <tbody id="product-list">
-
             <?php
             if (isset($_GET['search'])) {
               include '../actions/search_action.php';
               display_search();
             } else {
               include '../functions/product_fxn.php';
-
             }
-
-
             ?>
           </tbody>
         </table>
@@ -113,11 +108,9 @@
             <label for="qty-in-stock">Quantity in Stock:</label>
             <input type="number" name="qty-in-stock" id="qty-in-stock" placeholder="Enter quantity in stock" required />
             <label for="LocationInshop">Location in shop:</label>
-            <input type="text" name="LocationInshop" id="LocationInshop" placeholder="Enter location in shop"
-              required />
+            <input type="text" name="LocationInshop" id="LocationInshop" placeholder="Enter location in shop" required />
             <label for="product-description">Product Description(optional):</label>
-            <input type="text" name="product-description" id="product-description"
-              placeholder="Enter product description" />
+            <input type="text" name="product-description" id="product-description" placeholder="Enter product description" />
             <button type="submit" name="submit" class="add-inventory-btn" id="add-inventory-btn">
               Add Product
             </button>
@@ -162,8 +155,8 @@
       document.getElementById('edit-product-id').value = id;
       document.getElementById('edit-product-name').value = name;
       document.getElementById('edit-sku').value = sku;
-      option.value =category;
-      option.innerText =category;
+      option.value = category;
+      option.innerText = category;
       document.getElementById('edit-category').appendChild(option)
       document.getElementById('edit-quantity').value = quantity;
       document.getElementById('edit-location').value = location;
@@ -171,12 +164,12 @@
       document.getElementById('edit-modal').style.display = 'block';
     }
 
-    document.querySelector('.modal .eclose').addEventListener('click', function () {
+    document.querySelector('.modal .eclose').addEventListener('click', function() {
       document.getElementById('edit-modal').style.display = 'none';
     });
   </script>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
       const addInventorybtn = document.getElementById("add-inventory-btn");
       const modal = document.getElementById("add-inventory-modal");
       const closeModalBtn = document.querySelector(".modal .close");
