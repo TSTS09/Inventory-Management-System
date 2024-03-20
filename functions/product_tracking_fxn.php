@@ -2,6 +2,9 @@
 include '../actions/get_all_products_tracking.php';
 $products = getAllProducts();
 
+// print_r($products);
+// exit();
+
 // Display the Products in a table
 foreach ($products as $product) {
     echo "<tr>";
@@ -25,7 +28,7 @@ echo '</table>';
         <span class="close">&times;</span>
         <h2>Edit Product</h2>
         <form action="../actions/edit_product_action_tracking.php" method="post">
-            <input type="hidden" id="edit-product-id" name="product_id" />
+            <input type="hidden" id="edit-product-id" name="product_id"/>
             <label for="edit-product-name">Product Name:</label>
             <select class="add-inventory-btn" name="product-name" id="edit-product-name" disabled>
                 <option value="">Select</option>
@@ -40,7 +43,6 @@ echo '</table>';
                 }
                 ?>
             </select>
-
             <label for="edit-supplier-contact">Supplier Contact:</label>
             <input type="text" id="edit-supplier-contact" name="supplier-contact" placeholder="Enter supplier contact" required />
             <label for="edit-last-restock">Last Restock:</label>
@@ -55,11 +57,12 @@ echo '</table>';
 </div>
 <script>
     function editProduct(id, contact, lastRestock, nextSupply) {
-        document.getElementById('edit-product-name').value = id;
+        document.getElementById('edit-product-id').value = id;
         document.getElementById('edit-supplier-contact').value = contact;
         document.getElementById('edit-last-restock').value = lastRestock;
         document.getElementById('edit-next-supply-date').value = nextSupply;
         document.getElementById('edit-modal').style.display = 'block';
+        console.log({id})
         return false; // Prevent the default link behavior
     }
 

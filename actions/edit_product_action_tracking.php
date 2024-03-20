@@ -11,12 +11,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // SQL query to update product in database
     $sql = "UPDATE inventorytracking SET supplier_contact=?, date_last_restock=?, next_supply_date=? WHERE product_id=?";
+    
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sssi", $contact, $lastRestock, $NextSupply, $ProductID);
     // Execute the query
     if ($stmt->execute()) {
         // Redirect to the product display page after successful update
         header('Location: ../view/tracking_view.php');
+        echo "$ProductID";
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;

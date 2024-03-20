@@ -19,7 +19,7 @@ function daysUntilRestock($next_supply_date) {
 
 // Fetch data from tables
 $reportData = [];
-$sql = "SELECT p.ProductName AS product_name, i.supplier_contact AS supplier_name, c.categoryName AS category_name, i.next_supply_date FROM products p LEFT OUTER JOIN inventorytracking i ON p.ProductID = i.product_id LEFT OUTER JOIN categories c ON p.Category = c.categoryid;";
+$sql = "SELECT p.ProductName AS product_name, i.supplier_contact AS supplier_contact, c.categoryName AS category_name, i.next_supply_date FROM products p LEFT OUTER JOIN inventorytracking i ON p.ProductID = i.product_id LEFT OUTER JOIN categories c ON p.Category = c.categoryid;";
 
 $result = mysqli_query($conn, $sql);
 
@@ -34,7 +34,7 @@ if (!$result) {
 
       $reportData[] = array(
         "product_name" => $row['product_name'],
-        "supplier_name" => $row['supplier_name'],
+        "supplier_contact" => $row['supplier_contact'],
         "category_name" => $row['category_name'],
         "days_until_restock" => $days,
       );
@@ -56,16 +56,16 @@ $pdf->Cell(0, 10, 'Inventory Report - ' . date('Y-m-d'), 0, 1, 'C');
 
 // Create table header
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(60, 6, 'Product Name', 1, 0, 'C');
-$pdf->Cell(60, 6, 'Supplier Name', 1, 0, 'C');
+$pdf->Cell(50, 6, 'Product Name', 1, 0, 'C');
+$pdf->Cell(50, 6, 'Supplier Contact', 1, 0, 'C');
 $pdf->Cell(40, 6, 'Category', 1, 0, 'C');
 $pdf->Cell(40, 6, 'Days Until Restock', 1, 1, 'C');
 
 // Loop through data and populate table rows
 $pdf->SetFont('Arial', '', 10);
 foreach ($reportData as $row) {
-  $pdf->Cell(60, 6, $row['product_name'], 1, 0);
-  $pdf->Cell(60, 6, $row['supplier_name'], 1, 0);
+  $pdf->Cell(50, 6, $row['product_name'], 1, 0);
+  $pdf->Cell(50, 6, $row['supplier_contact'], 1, 0);
   $pdf->Cell(40, 6, $row['category_name'], 1, 0);
   $pdf->Cell(40, 6, $row['days_until_restock'], 1, 1);
 }

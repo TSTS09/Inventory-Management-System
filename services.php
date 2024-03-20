@@ -140,7 +140,7 @@
               </div>
               <div class="contents">
                 <h3>Stock Lookup</h3>
-                <p>Manages placing and fulfilling orders, including processing, picking, packing, and shipping.</p>
+                <p>Effortlessly Locate Our Products: Directly discover items in stock and use our Stock Lookup feature to easily find our products or search by category for quick navigation.</p>
               </div>
             </a>
           </div>
@@ -151,7 +151,7 @@
               </div>
               <div class="contents">
                 <h3>Generate Term Reports</h3>
-                <p>Provide period summary of inventory to help you determine the peak seacon for proper SCM</p>
+                <p>Utilize our 'Generate Reports' tool to access comprehensive summaries of your inventory. Track supplier information, monitor restock countdowns, and categorize products for efficient management.</p>
               </div>
             </a>
           </div>
@@ -163,7 +163,7 @@
               </div>
               <div class="contents">
                 <h3>Inventory Management</h3>
-                <p>Automatically generates reorder notifications or purchase orders when inventory levels fall below a predetermined threshold.</p>
+                <p>Explore our 'Inventory Management' feature to access live updates on the quantity and whereabouts of each item in stock. Effortlessly locate items and streamline operations with the ability to search by category.</p>
               </div>
             </a>
           </div>
@@ -174,7 +174,7 @@
               </div>
               <div class="contents">
                 <h3>Supplier Tracking</h3>
-                <p>Provides real-time visibility into the quantity and location of each item in stock.</p>
+                <p>Optimize Inventory Management: Gain Valuable Insights into Suppliers with Supplier Tracking. Easily Monitor Next Supply Date and Last Restocked to Ensure Seamless Operations.</p>
               </div>
             </a>
           </div>
@@ -185,8 +185,8 @@
                 <span class="flaticon-lithotherapy"></span>
               </div>
               <div class="contents">
-                <h3>24/7 helpdesk Support</h3>
-                <p>Extensive support to help navigate the system, with realtime support</p>
+                <h3>24/7 Contact Us</h3>
+                <p>Have questions, recommendations, or facing any issues? Reach out to us through our '24/7 Contact Us' feature. Simply send us an email, and our team will ensure a prompt and timely response to address your concerns.</p>
               </div>
             </a>
           </div>
@@ -197,7 +197,7 @@
               </div>
               <div class="contents">
                 <h3>Inventory Tracking</h3>
-                <p>Realtime changes into your stock level to nver be out of stock</p>
+                <p>"Enhance Inventory Control: Harness the Power of Supplier Tracking for Streamlined Stock Management. Unlock Actionable Insights while Seamlessly Monitoring Supply Dynamics."</p>
               </div>
             </a>
           </div>

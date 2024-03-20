@@ -16,6 +16,7 @@ if ((isset($_SERVER['REQUEST_METHOD']) == "POST") && isset($_POST['signInButton'
         $row = $result->fetch_assoc();
         if (password_verify($passwordInput, $row['password'])) {
             $_SESSION['userId'] = $row['userid'];
+            $_SESSION['email'] = $row['email'];
             header('Location: ../view/management_view.php?msg=sucess');
             exit();
         } else {

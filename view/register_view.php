@@ -38,6 +38,8 @@
 
                 <input type="password" placeholder="Password" name="password" id="password" required>
                 <input type="password" placeholder="Retype Password" name="passwordRetype" id="passwordRetype" required>
+                <!-- <label for="Security Question">Security Question:</label> -->
+                <input type="password" placeholder="Security : Enter Favorite Animal " name="securityInput" id="securityInput" required>
 
                 <button type="submit" name="registerButton" id="registerButton">Register</button>
                 <div id="error"></div>
