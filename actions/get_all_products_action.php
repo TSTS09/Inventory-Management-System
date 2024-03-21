@@ -19,5 +19,4 @@ function getAllProducts()
             return $products;
         }
     }
-    $conn->close();
 }
